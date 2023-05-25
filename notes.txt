@@ -1,0 +1,11 @@
+12. Agenda kegiatan
+    Dua orang manager mencatat agenda kegiatan mereka masing-masing untuk 1 minggu, dari hari Senin sampai 
+    dengan Jumat, dari jam 8 sampai 17. Selain agenda masing-masing, adakalanya mereka harus kompromi 
+    mencari jadwal untuk rapat bersama. Buat program dengan fungsi-fungsi berikut:
+        a.  Input/edit/delete kegiatan pribadi. Kegiatan bisa lebih dari 1 jam dan tidak boleh terpotong. Kegiatan 
+        akan ditempatkan di agenda. Penempatan kegiatan harus seoptimal mungkin.
+        b.  Input/edit/delete kegiatan rapat bersama, bisa lebih dari 1 jam. Slot waktu yang dicari adalah yang kedua 
+        manajer available.
+        c.  Optimalisasi agenda manager tertentu. Yang dilakukan adalah menggeser kegiatan-kegiatan pribadi ke 
+        slot-slot kosong di hari-hari atau waktu-waktu sebelumnya. Acara rapat bersama tidak bisa digeser.
+        d.  Menerima input hari dan waktu, mencetak kegiatan di slot waktu tersebut.

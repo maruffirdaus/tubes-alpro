@@ -2,6 +2,23 @@ package main
 
 import "fmt"
 
+func printHeader(selectedManager int) {
+	/*
+		I.S. -
+		F.S. Menampilkan header
+	*/
+
+	fmt.Print("|                                    |\n")
+	if selectedManager == 1 {
+		fmt.Print("|        [ MANAJER PERTAMA  ]        |\n")
+	} else {
+		fmt.Print("|         [ MANAJER KEDUA  ]         |\n")
+	}
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+}
+
 func selectManager() {
 	/*
 		I.S. -
@@ -50,15 +67,7 @@ func mainMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Kegiatan Pribadi:                |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      1. Isi Kegiatan Baru          |\n")
@@ -118,15 +127,7 @@ func firstMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -136,11 +137,7 @@ func firstMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		firstMenu(selectedManager)
@@ -157,15 +154,7 @@ func secondMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*---------- UBAH KEGIATAN -----------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -175,11 +164,7 @@ func secondMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		secondMenu(selectedManager)
@@ -196,15 +181,7 @@ func thirdMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*---------- HAPUS KEGIATAN ----------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -214,11 +191,7 @@ func thirdMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		thirdMenu(selectedManager)
@@ -235,15 +208,7 @@ func fourthMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*---------- ISI RAPAT BARU ----------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -253,11 +218,7 @@ func fourthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		fourthMenu(selectedManager)
@@ -274,15 +235,7 @@ func fifthMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*------------ UBAH RAPAT ------------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -292,11 +245,7 @@ func fifthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		fifthMenu(selectedManager)
@@ -313,15 +262,7 @@ func sixthMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*----------- HAPUS RAPAT ------------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -331,11 +272,7 @@ func sixthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		sixthMenu(selectedManager)
@@ -352,15 +289,7 @@ func seventhMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*------- OPTIMALISASI AGENDA --------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -370,11 +299,7 @@ func seventhMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		seventhMenu(selectedManager)
@@ -391,15 +316,7 @@ func eighthMenu(selectedManager int) {
 
 	fmt.Print("\n")
 	fmt.Print("*--------- TAMPILKAN AGENDA ---------*\n")
-	fmt.Print("|                                    |\n")
-	if selectedManager == 1 {
-		fmt.Print("|          MANAJER PERTAMA           |\n")
-	} else {
-		fmt.Print("|           MANAJER KEDUA            |\n")
-	}
-	fmt.Print("|                                    |\n")
-	fmt.Print("|            PILIHAN MENU            |\n")
-	fmt.Print("|                                    |\n")
+	printHeader(selectedManager)
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -409,11 +326,7 @@ func eighthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
-
-	} else if selectedMenu == 2 {
-
-	} else if selectedMenu == 9 {
+	if selectedMenu == 9 {
 		mainMenu(selectedManager)
 	} else {
 		eighthMenu(selectedManager)

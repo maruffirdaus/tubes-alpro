@@ -1,0 +1,3 @@
+// Rapat bersama
+
+package main

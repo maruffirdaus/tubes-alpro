@@ -1,0 +1,3 @@
+// Lain
+
+package main

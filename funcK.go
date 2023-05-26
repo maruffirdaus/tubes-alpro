@@ -1,0 +1,3 @@
+// Kegiatan pribadi
+
+package main

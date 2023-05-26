@@ -2,6 +2,8 @@ package main
 
 import "fmt"
 
+var selectedMenu string
+
 func printHeader(selectedManager int) {
 	/*
 		I.S. -
@@ -25,8 +27,6 @@ func selectManager() {
 		F.S. Menampilkan menu untuk memilih manajer pertama atau kedua yang akan membuat agenda
 	*/
 
-	var selectedMenu int
-
 	fmt.Print("\n")
 	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
 	fmt.Print("|                                    |\n")
@@ -46,13 +46,16 @@ func selectManager() {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
+	if selectedMenu == "1" {
+		fmt.Printf("\x1bc")
 		mainMenu(1)
-	} else if selectedMenu == 2 {
+	} else if selectedMenu == "2" {
+		fmt.Printf("\x1bc")
 		mainMenu(2)
-	} else if selectedMenu == 0 {
-
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
 	} else {
+		fmt.Printf("\x1bc")
 		selectManager()
 	}
 }
@@ -62,8 +65,6 @@ func mainMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu utama pencatat agenda kegiatan
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
@@ -92,27 +93,37 @@ func mainMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 1 {
+	if selectedMenu == "1" {
+		fmt.Printf("\x1bc")
 		firstMenu(selectedManager)
-	} else if selectedMenu == 2 {
+	} else if selectedMenu == "2" {
+		fmt.Printf("\x1bc")
 		secondMenu(selectedManager)
-	} else if selectedMenu == 3 {
+	} else if selectedMenu == "3" {
+		fmt.Printf("\x1bc")
 		thirdMenu(selectedManager)
-	} else if selectedMenu == 4 {
+	} else if selectedMenu == "4" {
+		fmt.Printf("\x1bc")
 		fourthMenu(selectedManager)
-	} else if selectedMenu == 5 {
+	} else if selectedMenu == "5" {
+		fmt.Printf("\x1bc")
 		fifthMenu(selectedManager)
-	} else if selectedMenu == 6 {
+	} else if selectedMenu == "6" {
+		fmt.Printf("\x1bc")
 		sixthMenu(selectedManager)
-	} else if selectedMenu == 7 {
+	} else if selectedMenu == "7" {
+		fmt.Printf("\x1bc")
 		seventhMenu(selectedManager)
-	} else if selectedMenu == 8 {
+	} else if selectedMenu == "8" {
+		fmt.Printf("\x1bc")
 		eighthMenu(selectedManager)
-	} else if selectedMenu == 9 {
+	} else if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		selectManager()
-	} else if selectedMenu == 0 {
-
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
 	} else {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	}
 }
@@ -122,8 +133,6 @@ func firstMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu isi kegiatan baru
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
@@ -137,9 +146,11 @@ func firstMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		firstMenu(selectedManager)
 	}
 }
@@ -149,8 +160,6 @@ func secondMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu ubah kegiatan
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*---------- UBAH KEGIATAN -----------*\n")
@@ -164,9 +173,11 @@ func secondMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		secondMenu(selectedManager)
 	}
 }
@@ -176,8 +187,6 @@ func thirdMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu hapus kegiatan
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*---------- HAPUS KEGIATAN ----------*\n")
@@ -191,9 +200,11 @@ func thirdMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		thirdMenu(selectedManager)
 	}
 }
@@ -203,8 +214,6 @@ func fourthMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu isi rapat baru
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*---------- ISI RAPAT BARU ----------*\n")
@@ -218,9 +227,11 @@ func fourthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		fourthMenu(selectedManager)
 	}
 }
@@ -230,8 +241,6 @@ func fifthMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu ubah rapat
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*------------ UBAH RAPAT ------------*\n")
@@ -245,9 +254,11 @@ func fifthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		fifthMenu(selectedManager)
 	}
 }
@@ -257,8 +268,6 @@ func sixthMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu hapus rapat
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*----------- HAPUS RAPAT ------------*\n")
@@ -272,9 +281,11 @@ func sixthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		sixthMenu(selectedManager)
 	}
 }
@@ -284,8 +295,6 @@ func seventhMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu optimalisasi agenda
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*------- OPTIMALISASI AGENDA --------*\n")
@@ -299,9 +308,11 @@ func seventhMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		seventhMenu(selectedManager)
 	}
 }
@@ -311,8 +322,6 @@ func eighthMenu(selectedManager int) {
 		I.S. -
 		F.S. Menampilkan menu tampilkan agenda
 	*/
-
-	var selectedMenu int
 
 	fmt.Print("\n")
 	fmt.Print("*--------- TAMPILKAN AGENDA ---------*\n")
@@ -326,9 +335,11 @@ func eighthMenu(selectedManager int) {
 	fmt.Print("Pilih Nomor Menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == 9 {
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
 		mainMenu(selectedManager)
 	} else {
+		fmt.Printf("\x1bc")
 		eighthMenu(selectedManager)
 	}
 }

@@ -29,7 +29,7 @@ func selectManager() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "1" {
@@ -95,7 +95,7 @@ func mainMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "1" {
@@ -142,21 +142,167 @@ func insertActivityMenu() {
 	fmt.Print("\n")
 	fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
 	printHeader()
+	fmt.Print("|   Pilih Hari:                      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      1. Senin                      |\n")
+	fmt.Print("|      2. Selasa                     |\n")
+	fmt.Print("|      3. Rabu                       |\n")
+	fmt.Print("|      4. Kamis                      |\n")
+	fmt.Print("|      5. Jumat                      |\n")
+	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == "9" {
+	if selectedMenu == "1" {
+		fmt.Printf("\x1bc")
+		selectTimeMenu(0)
+	} else if selectedMenu == "2" {
+		fmt.Printf("\x1bc")
+		selectTimeMenu(1)
+	} else if selectedMenu == "3" {
+		fmt.Printf("\x1bc")
+		selectTimeMenu(2)
+	} else if selectedMenu == "4" {
+		fmt.Printf("\x1bc")
+		selectTimeMenu(3)
+	} else if selectedMenu == "5" {
+		fmt.Printf("\x1bc")
+		selectTimeMenu(4)
+	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
 		insertActivityMenu()
+	}
+}
+
+func selectTimeMenu(day int) {
+	/*
+		I.S. Terdapat nilai dari hari yang dipilih dan lamanya waktu kegiatan
+		F.S. Menampilkan menu isi kegiatan baru
+	*/
+
+	var activityName string
+	var timeLength int
+
+	fmt.Print("\n")
+	fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
+	printHeader()
+	fmt.Print("|   Pilih Waktu Mulai Kegiatan:      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      a. 08.00                      |\n")
+	fmt.Print("|      b. 09.00                      |\n")
+	fmt.Print("|      c. 10.00                      |\n")
+	fmt.Print("|      d. 11.00                      |\n")
+	fmt.Print("|      e. 12.00                      |\n")
+	fmt.Print("|      f. 13.00                      |\n")
+	fmt.Print("|      g. 14.00                      |\n")
+	fmt.Print("|      h. 15.00                      |\n")
+	fmt.Print("|      i. 16.00                      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "a" || selectedMenu == "b" || selectedMenu == "c" || selectedMenu == "d" || selectedMenu == "e" || selectedMenu == "f" || selectedMenu == "g" || selectedMenu == "h" || selectedMenu == "i" || selectedMenu == "j" {
+		fmt.Printf("\x1bc")
+		fmt.Print("\n")
+		fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Isikan detail kegiatan!          |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+		fmt.Print("Nama kegiatan: ")
+		fmt.Scan(&activityName)
+		fmt.Print("Berapa lama kegiatan (jam): ")
+		fmt.Scan(&timeLength)
+	}
+
+	if selectedMenu == "a" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 0, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 0, timeLength, activityName)
+		}
+	} else if selectedMenu == "b" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 1, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 1, timeLength, activityName)
+		}
+	} else if selectedMenu == "c" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 2, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 2, timeLength, activityName)
+		}
+	} else if selectedMenu == "d" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 3, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 3, timeLength, activityName)
+		}
+	} else if selectedMenu == "e" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 4, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 4, timeLength, activityName)
+		}
+	} else if selectedMenu == "f" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 5, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 5, timeLength, activityName)
+		}
+	} else if selectedMenu == "g" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 6, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 6, timeLength, activityName)
+		}
+	} else if selectedMenu == "h" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 7, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 7, timeLength, activityName)
+		}
+	} else if selectedMenu == "i" {
+		fmt.Printf("\x1bc")
+		if selectedManager == 1 {
+			insertActivity(&firstManagerAgenda, day, 8, timeLength, activityName)
+		} else {
+			insertActivity(&secondManagerAgenda, day, 8, timeLength, activityName)
+		}
+	} else if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
+		insertActivityMenu()
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		selectTimeMenu(day)
 	}
 }
 
@@ -175,7 +321,7 @@ func changeActivityMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {
@@ -202,7 +348,7 @@ func deleteActivityMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {
@@ -229,7 +375,7 @@ func insertMeetingMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {
@@ -256,7 +402,7 @@ func changeMeetingMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {
@@ -283,7 +429,7 @@ func deleteMeetingMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {
@@ -310,7 +456,7 @@ func optimizeAgendaMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {
@@ -337,7 +483,7 @@ func showAgendaMenu() {
 	fmt.Print("|                                    |\n")
 	fmt.Print("*------------------------------------*\n\n")
 
-	fmt.Print("Pilih Nomor Menu: ")
+	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
 	if selectedMenu == "9" {

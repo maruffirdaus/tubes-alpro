@@ -1,11 +1,73 @@
 // Kegiatan pribadi
+// identifier 0 = kegiatan pribadi
+// identifier 1 = rapat bersama
+// day 0,1,2,3,4 = hari senin, selasa, rabu, kamis, jumat
+// time 0 = 08.00-09.00
+// time 1 = 09.00-10.00
+// time 2 = 10.00-11.00
+// dst.
 
 package main
 
 import "fmt"
 
-func inputKeg(T weekAgenda, n int) {
+func checkActivity(A weekAgenda, day, time, timeLength int) bool {
+	// Mengecek apakah agenda pada hari dan waktu yang dipilih kosong ataukah tidak
+	// true = kosong
+	// false = tidak kosong
 
-	fmt.Scan(&T[n].activity)
+	var status bool = true
+	var i int
+
+	for i < time+timeLength && status {
+		if A[day].activity[i] != "" {
+			status = false
+		}
+		i++
+	}
+
+	return status
+}
+
+func insertActivity(A *weekAgenda, day, time, timeLength int, activityName string) {
+	/*
+		I.S. Terdapat nilai dari hari dan waktu yang dipilih, lamanya waktu, dan nama kegiatan pribadi
+		F.S. Mengisi kegiatan pribadi ke dalam array
+	*/
+
+	var i int
+
+	if checkActivity(*A, day, time, timeLength) {
+		for i = time; i <= time+timeLength; i++ {
+			A[day].activity[i] = activityName
+			A[day].identifier[i] = 0
+		}
+		fmt.Print("\n")
+		fmt.Print("*------------ PERINGATAN ------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Kegiatan telah berhasil          |\n")
+		fmt.Print("|   diisikan pada agenda dengan      |\n")
+		fmt.Print("|   waktu yang dipilih.              |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n")
+		mainMenu()
+	} else {
+		fmt.Print("\n")
+		fmt.Print("*------------ PERINGATAN ------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Agenda pada waktu tersebut       |\n")
+		fmt.Print("|   telah terisi, silahkan pilih     |\n")
+		fmt.Print("|   waktu yang lain!                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n")
+		selectTimeMenu(day)
+	}
+}
+
+func changeActivity(A *weekAgenda, day, time int) {
+
+}
+
+func deleteActivity(A *weekAgenda, day, time int) {
 
 }

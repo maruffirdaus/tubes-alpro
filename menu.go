@@ -100,28 +100,28 @@ func mainMenu() {
 
 	if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
-		firstMenu()
+		insertActivityMenu()
 	} else if selectedMenu == "2" {
 		fmt.Printf("\x1bc")
-		secondMenu()
+		changeActivityMenu()
 	} else if selectedMenu == "3" {
 		fmt.Printf("\x1bc")
-		thirdMenu()
+		deleteActivityMenu()
 	} else if selectedMenu == "4" {
 		fmt.Printf("\x1bc")
-		fourthMenu()
+		insertMeetingMenu()
 	} else if selectedMenu == "5" {
 		fmt.Printf("\x1bc")
-		fifthMenu()
+		changeMeetingMenu()
 	} else if selectedMenu == "6" {
 		fmt.Printf("\x1bc")
-		sixthMenu()
+		deleteMeetingMenu()
 	} else if selectedMenu == "7" {
 		fmt.Printf("\x1bc")
-		seventhMenu()
+		optimizeAgendaMenu()
 	} else if selectedMenu == "8" {
 		fmt.Printf("\x1bc")
-		eighthMenu()
+		showAgendaMenu()
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		selectManager()
@@ -133,7 +133,7 @@ func mainMenu() {
 	}
 }
 
-func firstMenu() {
+func insertActivityMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu isi kegiatan baru
@@ -156,11 +156,11 @@ func firstMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		firstMenu()
+		insertActivityMenu()
 	}
 }
 
-func secondMenu() {
+func changeActivityMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu ubah kegiatan
@@ -183,11 +183,11 @@ func secondMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		secondMenu()
+		changeActivityMenu()
 	}
 }
 
-func thirdMenu() {
+func deleteActivityMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu hapus kegiatan
@@ -210,11 +210,11 @@ func thirdMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		thirdMenu()
+		deleteActivityMenu()
 	}
 }
 
-func fourthMenu() {
+func insertMeetingMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu isi rapat baru
@@ -237,11 +237,11 @@ func fourthMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		fourthMenu()
+		insertMeetingMenu()
 	}
 }
 
-func fifthMenu() {
+func changeMeetingMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu ubah rapat
@@ -264,11 +264,11 @@ func fifthMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		fifthMenu()
+		changeMeetingMenu()
 	}
 }
 
-func sixthMenu() {
+func deleteMeetingMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu hapus rapat
@@ -291,11 +291,11 @@ func sixthMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		sixthMenu()
+		deleteMeetingMenu()
 	}
 }
 
-func seventhMenu() {
+func optimizeAgendaMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu optimalisasi agenda
@@ -318,11 +318,11 @@ func seventhMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		seventhMenu()
+		optimizeAgendaMenu()
 	}
 }
 
-func eighthMenu() {
+func showAgendaMenu() {
 	/*
 		I.S. -
 		F.S. Menampilkan menu tampilkan agenda
@@ -345,6 +345,6 @@ func eighthMenu() {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		eighthMenu()
+		showAgendaMenu()
 	}
 }

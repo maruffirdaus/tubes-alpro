@@ -37,7 +37,19 @@ func insertActivity(A *weekAgenda, day, time, timeLength int, activityName strin
 
 	var i int
 
-	if checkActivity(*A, day, time, timeLength) {
+	if 8 < time+timeLength {
+		fmt.Print("\n")
+		fmt.Print("*------------ PERINGATAN ------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Lama kegiatan melebihi batas     |\n")
+		fmt.Print("|   waktu yang bisa digunakan,       |\n")
+		fmt.Print("|   silahkan pilih waktu yang lain   |\n")
+		fmt.Print("|   atau kurangi lama waktu          |\n")
+		fmt.Print("|   kegiatan!                        |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n")
+		selectTimeMenu(day)
+	} else if checkActivity(*A, day, time, timeLength) {
 		for i = time; i <= time+timeLength; i++ {
 			A[day].activity[i] = activityName
 			A[day].identifier[i] = 0

@@ -17,7 +17,7 @@ func checkActivity(A weekAgenda, day, time, timeLength int) bool {
 	// false = tidak kosong
 
 	var status bool = true
-	var i int
+	var i int = time
 
 	for i < time+timeLength && status {
 		if A[day].activity[i] != "" {
@@ -37,7 +37,7 @@ func insertActivity(A *weekAgenda, day, time, timeLength int, activityName strin
 
 	var i int
 
-	if 8 < time+timeLength {
+	if 9 < time+timeLength {
 		fmt.Print("\n")
 		fmt.Print("*------------ PERINGATAN ------------*\n")
 		fmt.Print("|                                    |\n")
@@ -50,7 +50,7 @@ func insertActivity(A *weekAgenda, day, time, timeLength int, activityName strin
 		fmt.Print("*------------------------------------*\n")
 		selectTimeMenu(day)
 	} else if checkActivity(*A, day, time, timeLength) {
-		for i = time; i <= time+timeLength; i++ {
+		for i = time; i < time+timeLength; i++ {
 			A[day].activity[i] = activityName
 			A[day].identifier[i] = 0
 		}
@@ -69,7 +69,8 @@ func insertActivity(A *weekAgenda, day, time, timeLength int, activityName strin
 		fmt.Print("|                                    |\n")
 		fmt.Print("|   Agenda pada waktu tersebut       |\n")
 		fmt.Print("|   telah terisi, silahkan pilih     |\n")
-		fmt.Print("|   waktu yang lain!                 |\n")
+		fmt.Print("|   waktu yang lain atau kurangi     |\n")
+		fmt.Print("|   lama waktu kegiatan!             |\n")
 		fmt.Print("|                                    |\n")
 		fmt.Print("*------------------------------------*\n")
 		selectTimeMenu(day)

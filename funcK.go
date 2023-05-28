@@ -77,21 +77,137 @@ func insertActivity(A *weekAgenda, day, time, timeLength int, activityName strin
 	}
 }
 
-func seqSearch(A weekAgenda, n int, X string, day int) bool {
+func searchActivityName(A weekAgenda, day, i int, activityName string) int {
 
 	var found bool = false
-	var j int = 0
-	for j < n && !found {
-		found = A[day].activity[j] == X
-		j = j + 1
+	for i < 9 && !found {
+		found = A[day].activity[i] == activityName
+		i = i + 1
 	}
-	return found
+	if found {
+		return i - 1
+	} else {
+		return -1
+	}
 }
 
 func changeActivity(A *weekAgenda, day, time int) {
 
 }
 
-func deleteActivity(A *weekAgenda, day, time int) {
+func deleteActivity(day, time int) {
+	var A, B weekAgenda
 
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+		B = secondManagerAgenda
+	} else {
+		A = secondManagerAgenda
+		B = firstManagerAgenda
+	}
+
+	if A[day].identifier[time] == 0 {
+		A[day].activity[time] = ""
+	} else {
+		A[day].activity[time] = ""
+		B[day].activity[time] = ""
+	}
+
+	if selectedManager == 1 {
+		firstManagerAgenda = A
+		secondManagerAgenda = B
+	} else {
+		secondManagerAgenda = A
+		firstManagerAgenda = B
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------ PERINGATAN ------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Kegiatan telah berhasil          |\n")
+	fmt.Print("|   dihapus pada agenda dengan       |\n")
+	fmt.Print("|   waktu yang dipilih.              |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n")
+	mainMenu()
+}
+
+func deleteAllActivity(day int) {
+	var A, B weekAgenda
+	var i int
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+		B = secondManagerAgenda
+	} else {
+		A = secondManagerAgenda
+		B = firstManagerAgenda
+	}
+
+	for i = 0; i < 9; i++ {
+		if A[day].identifier[i] == 0 {
+			A[day].activity[i] = ""
+		} else {
+			A[day].activity[i] = ""
+			B[day].activity[i] = ""
+		}
+	}
+
+	if selectedManager == 1 {
+		firstManagerAgenda = A
+		secondManagerAgenda = B
+	} else {
+		secondManagerAgenda = A
+		firstManagerAgenda = B
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------ PERINGATAN ------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Semua kegiatan berhasil          |\n")
+	fmt.Print("|   dihapus.                         |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n")
+	mainMenu()
+}
+
+func deleteActivityByName(day int, activityName string) {
+	var A, B weekAgenda
+	var i int
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+		B = secondManagerAgenda
+	} else {
+		A = secondManagerAgenda
+		B = firstManagerAgenda
+	}
+
+	for i = 0; i < 9; i++ {
+		if searchActivityName(A, day, i, activityName) != -1 {
+			if A[day].identifier[searchActivityName(A, day, i, activityName)] == 0 {
+				A[day].activity[searchActivityName(A, day, i, activityName)] = ""
+			} else {
+				A[day].activity[searchActivityName(A, day, i, activityName)] = ""
+				B[day].activity[searchActivityName(A, day, i, activityName)] = ""
+			}
+		}
+	}
+
+	if selectedManager == 1 {
+		firstManagerAgenda = A
+		secondManagerAgenda = B
+	} else {
+		secondManagerAgenda = A
+		firstManagerAgenda = B
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------ PERINGATAN ------------*\n")
+	fmt.Print("                                      \n")
+	fmt.Printf("    Kegiatan %v\n", activityName)
+	fmt.Print("    berhasil dihapus.                 \n")
+	fmt.Print("                                      \n")
+	fmt.Print("*------------------------------------*\n")
+	mainMenu()
 }

@@ -77,19 +77,20 @@ func mainMenu() {
 	fmt.Print("|   Kegiatan Pribadi:                |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      1. Isi Kegiatan Baru          |\n")
-	fmt.Print("|      2. Ubah Kegiatan              |\n")
-	fmt.Print("|      3. Hapus Kegiatan             |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Kegiatan Rapat Bersama:          |\n")
 	fmt.Print("|                                    |\n")
-	fmt.Print("|      4. Isi Rapat Baru             |\n")
-	fmt.Print("|      5. Ubah Rapat                 |\n")
-	fmt.Print("|      6. Hapus Rapat                |\n")
+	fmt.Print("|      2. Isi Rapat Baru             |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Ubah/Hapus Kegiatan:             |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      3. Ubah Kegiatan              |\n")
+	fmt.Print("|      4. Hapus Kegiatan             |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
-	fmt.Print("|      7. Optimalisasi Agenda        |\n")
-	fmt.Print("|      8. Tampilkan Agenda           |\n")
+	fmt.Print("|      5. Optimalisasi Agenda        |\n")
+	fmt.Print("|      6. Tampilkan Agenda           |\n")
 	fmt.Print("|      9. Ganti Opsi Manajer         |\n")
 	fmt.Print("|      0. Keluar                     |\n")
 	fmt.Print("|                                    |\n")
@@ -103,23 +104,17 @@ func mainMenu() {
 		insertActivityMenu()
 	} else if selectedMenu == "2" {
 		fmt.Printf("\x1bc")
-		changeActivityMenu()
+		insertMeetingMenu()
 	} else if selectedMenu == "3" {
 		fmt.Printf("\x1bc")
-		deleteActivityMenu()
+		changeActivityMenu()
 	} else if selectedMenu == "4" {
 		fmt.Printf("\x1bc")
-		insertMeetingMenu()
+		deleteActivityMenu()
 	} else if selectedMenu == "5" {
 		fmt.Printf("\x1bc")
-		changeMeetingMenu()
-	} else if selectedMenu == "6" {
-		fmt.Printf("\x1bc")
-		deleteMeetingMenu()
-	} else if selectedMenu == "7" {
-		fmt.Printf("\x1bc")
 		optimizeAgendaMenu()
-	} else if selectedMenu == "8" {
+	} else if selectedMenu == "6" {
 		fmt.Printf("\x1bc")
 		showAgendaMenu()
 	} else if selectedMenu == "9" {
@@ -346,6 +341,15 @@ func deleteActivityMenu() {
 	fmt.Print("\n")
 	fmt.Print("*---------- HAPUS KEGIATAN ----------*\n")
 	printHeader()
+	fmt.Print("|   Pilih Hari:                      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      1. Senin                      |\n")
+	fmt.Print("|      2. Selasa                     |\n")
+	fmt.Print("|      3. Rabu                       |\n")
+	fmt.Print("|      4. Kamis                      |\n")
+	fmt.Print("|      5. Jumat                      |\n")
+	fmt.Print("|      6. Hapus Semua                |\n")
+	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -354,13 +358,119 @@ func deleteActivityMenu() {
 
 	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
-
-	if selectedMenu == "9" {
+	if selectedMenu == "1" {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(0)
+	} else if selectedMenu == "2" {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(1)
+	} else if selectedMenu == "3" {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(2)
+	} else if selectedMenu == "4" {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(3)
+	} else if selectedMenu == "5" {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(4)
+	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
 		deleteActivityMenu()
+	}
+}
+
+func deleteSelectTimeMenu(day int) {
+	var activityName string
+
+	fmt.Print("\n")
+	fmt.Print("*---------- HAPUS KEGIATAN ----------*\n")
+	printHeader()
+	fmt.Print("|   Pilih Waktu:                     |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      a. 08.00 - 09.00              |\n")
+	fmt.Print("|      b. 09.00 - 10.00              |\n")
+	fmt.Print("|      c. 10.00 - 11.00              |\n")
+	fmt.Print("|      d. 11.00 - 12.00              |\n")
+	fmt.Print("|      e. 12.00 - 13.00              |\n")
+	fmt.Print("|      f. 13.00 - 14.00              |\n")
+	fmt.Print("|      g. 14.00 - 15.00              |\n")
+	fmt.Print("|      h. 15.00 - 16.00              |\n")
+	fmt.Print("|      i. 16.00 - 17.00              |\n")
+	fmt.Print("|      j. Hapus Berdasarkan Nama     |\n")
+	fmt.Print("|      k. Hapus Semua                |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "j" {
+		fmt.Printf("\x1bc")
+		fmt.Print("\n")
+		fmt.Print("*---------- HAPUS KEGIATAN ----------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Isikan nama kegiatan yang akan   |\n")
+		fmt.Print("|   dihapus!                         |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Catatan: tidak dapat menerima    |\n")
+		fmt.Print("|   input ( ) spasi, gunakan (_)     |\n")
+		fmt.Print("|   underscore sebagai pengganti.    |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+		fmt.Print("Nama kegiatan: ")
+		fmt.Scan(&activityName)
+	}
+
+	if selectedMenu == "a" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 0)
+	} else if selectedMenu == "b" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 1)
+	} else if selectedMenu == "c" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 2)
+	} else if selectedMenu == "d" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 3)
+	} else if selectedMenu == "e" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 4)
+	} else if selectedMenu == "f" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 5)
+	} else if selectedMenu == "g" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 6)
+	} else if selectedMenu == "h" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 7)
+	} else if selectedMenu == "i" {
+		fmt.Printf("\x1bc")
+		deleteActivity(day, 8)
+	} else if selectedMenu == "j" {
+		fmt.Printf("\x1bc")
+		deleteActivityByName(day, activityName)
+	} else if selectedMenu == "k" {
+		fmt.Printf("\x1bc")
+		deleteAllActivity(day)
+	} else if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
+		showAgendaMenu()
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		selectTimeAgendaMenu(day)
 	}
 }
 
@@ -388,60 +498,6 @@ func insertMeetingMenu() {
 	} else {
 		fmt.Printf("\x1bc")
 		insertMeetingMenu()
-	}
-}
-
-func changeMeetingMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu ubah rapat
-	*/
-
-	fmt.Print("\n")
-	fmt.Print("*------------ UBAH RAPAT ------------*\n")
-	printHeader()
-	fmt.Print("|   Menu Lain:                       |\n")
-	fmt.Print("|                                    |\n")
-	fmt.Print("|      9. Kembali                    |\n")
-	fmt.Print("|                                    |\n")
-	fmt.Print("*------------------------------------*\n\n")
-
-	fmt.Print("Pilih nomor menu: ")
-	fmt.Scan(&selectedMenu)
-
-	if selectedMenu == "9" {
-		fmt.Printf("\x1bc")
-		mainMenu()
-	} else {
-		fmt.Printf("\x1bc")
-		changeMeetingMenu()
-	}
-}
-
-func deleteMeetingMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu hapus rapat
-	*/
-
-	fmt.Print("\n")
-	fmt.Print("*----------- HAPUS RAPAT ------------*\n")
-	printHeader()
-	fmt.Print("|   Menu Lain:                       |\n")
-	fmt.Print("|                                    |\n")
-	fmt.Print("|      9. Kembali                    |\n")
-	fmt.Print("|                                    |\n")
-	fmt.Print("*------------------------------------*\n\n")
-
-	fmt.Print("Pilih nomor menu: ")
-	fmt.Scan(&selectedMenu)
-
-	if selectedMenu == "9" {
-		fmt.Printf("\x1bc")
-		mainMenu()
-	} else {
-		fmt.Printf("\x1bc")
-		deleteMeetingMenu()
 	}
 }
 

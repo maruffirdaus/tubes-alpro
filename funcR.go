@@ -12,11 +12,3 @@ package main
 func insertMeeting() {
 
 }
-
-func changeMeeting() {
-
-}
-
-func deleteMeeting() {
-
-}

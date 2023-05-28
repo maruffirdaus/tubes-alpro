@@ -25,12 +25,94 @@ func dayString(day int) string {
 	}
 }
 
-func showDailyAgenda(A weekAgenda, day int) {
-	var i int
-	var j int = 8
+func showAllAgenda() {
+	var A weekAgenda
+	var i, j, k int
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+	} else {
+		A = secondManagerAgenda
+	}
 
 	fmt.Print("\n")
 	fmt.Print("*------------------------------------*\n")
+	fmt.Print("\n")
+	if selectedManager == 1 {
+		fmt.Print("         [ MANAJER PERTAMA  ]         \n")
+	} else {
+		fmt.Print("          [ MANAJER KEDUA  ]          \n")
+	}
+	fmt.Print("\n")
+
+	for i = 0; i < 5; i++ {
+		k = 8
+
+		fmt.Printf("       Agenda pada hari %v:\n\n", dayString(i))
+		fmt.Print("        Waktu           Kegiatan\n")
+
+		for j = 0; j < 9; j++ {
+			if k+1 < 10 {
+				fmt.Printf("    0%v.00 - 0%v.00 | %v\n", k, k+1, A[i].activity[j])
+			} else if k+1 == 10 {
+				fmt.Printf("    0%v.00 - %v.00 | %v\n", k, k+1, A[i].activity[j])
+			} else {
+				fmt.Printf("    %v.00 - %v.00 | %v\n", k, k+1, A[i].activity[j])
+			}
+			k++
+		}
+
+		fmt.Print("\n")
+	}
+
+	fmt.Print("*------------------------------------*\n")
+
+	fmt.Print("\n")
+	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
+		showAgendaMenu()
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		showAllAgenda()
+	}
+}
+
+func showDailyAgenda(day int) {
+	var A weekAgenda
+	var i int
+	var j int = 8
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+	} else {
+		A = secondManagerAgenda
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("\n")
+	if selectedManager == 1 {
+		fmt.Print("         [ MANAJER PERTAMA  ]         \n")
+	} else {
+		fmt.Print("          [ MANAJER KEDUA  ]          \n")
+	}
 	fmt.Print("\n")
 	fmt.Printf("       Agenda pada hari %v:\n\n", dayString(day))
 	fmt.Print("        Waktu           Kegiatan\n")
@@ -72,13 +154,59 @@ func showDailyAgenda(A weekAgenda, day int) {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		showDailyAgenda(A, day)
+		showDailyAgenda(day)
 	}
 }
 
-func showTimeAgenda(A weekAgenda, day, time int) {
+func peekDailyAgenda(day int) {
+	var A weekAgenda
+	var i int
+	var j int = 8
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+	} else {
+		A = secondManagerAgenda
+	}
+
 	fmt.Print("\n")
 	fmt.Print("*------------------------------------*\n")
+	fmt.Print("\n")
+	fmt.Printf("       Agenda pada hari %v:\n\n", dayString(day))
+	fmt.Print("        Waktu           Kegiatan\n")
+
+	for i = 0; i < 9; i++ {
+		if j+1 < 10 {
+			fmt.Printf("    0%v.00 - 0%v.00 | %v\n", j, j+1, A[day].activity[i])
+		} else if j+1 == 10 {
+			fmt.Printf("    0%v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
+		} else {
+			fmt.Printf("    %v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
+		}
+		j++
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+}
+
+func showTimeAgenda(day, time int) {
+	var A weekAgenda
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+	} else {
+		A = secondManagerAgenda
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("\n")
+	if selectedManager == 1 {
+		fmt.Print("         [ MANAJER PERTAMA  ]         \n")
+	} else {
+		fmt.Print("          [ MANAJER KEDUA  ]          \n")
+	}
 	fmt.Print("\n")
 	fmt.Printf("       Agenda pada hari %v:\n\n", dayString(day))
 	fmt.Print("        Waktu           Kegiatan\n")
@@ -117,6 +245,6 @@ func showTimeAgenda(A weekAgenda, day, time int) {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		showTimeAgenda(A, day, time)
+		showTimeAgenda(day, time)
 	}
 }

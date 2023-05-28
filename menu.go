@@ -224,6 +224,10 @@ func selectTimeMenu(day int) {
 		fmt.Print("|                                    |\n")
 		fmt.Print("|   Isikan detail kegiatan!          |\n")
 		fmt.Print("|                                    |\n")
+		fmt.Print("|   Catatan: tidak dapat menerima    |\n")
+		fmt.Print("|   input ( ) spasi, gunakan (_)     |\n")
+		fmt.Print("|   underscore sebagai pengganti.    |\n")
+		fmt.Print("|                                    |\n")
 		fmt.Print("*------------------------------------*\n\n")
 		fmt.Print("Nama kegiatan: ")
 		fmt.Scan(&activityName)
@@ -622,7 +626,7 @@ func selectTimeAgendaMenu(day int) {
 		}
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
-		insertActivityMenu()
+		showAgendaMenu()
 	} else if selectedMenu == "0" {
 		fmt.Printf("\x1bc")
 		mainMenu()

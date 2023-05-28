@@ -30,18 +30,24 @@ func showDailyAgenda(A weekAgenda, day int) {
 	var j int = 8
 
 	fmt.Print("\n")
-	fmt.Printf("Agenda pada hari %v:\n\n", dayString(day))
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("\n")
+	fmt.Printf("       Agenda pada hari %v:\n\n", dayString(day))
+	fmt.Print("        Waktu           Kegiatan\n")
 
 	for i = 0; i < 9; i++ {
 		if j+1 < 10 {
-			fmt.Printf("0%v.00 - 0%v.00 | %v\n", j, j+1, A[day].activity[i])
+			fmt.Printf("    0%v.00 - 0%v.00 | %v\n", j, j+1, A[day].activity[i])
 		} else if j+1 == 10 {
-			fmt.Printf("0%v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
+			fmt.Printf("    0%v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
 		} else {
-			fmt.Printf("%v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
+			fmt.Printf("    %v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
 		}
 		j++
 	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
 
 	fmt.Print("\n")
 	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
@@ -72,15 +78,21 @@ func showDailyAgenda(A weekAgenda, day int) {
 
 func showTimeAgenda(A weekAgenda, day, time int) {
 	fmt.Print("\n")
-	fmt.Printf("Agenda pada hari %v:\n\n", dayString(day))
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("\n")
+	fmt.Printf("       Agenda pada hari %v:\n\n", dayString(day))
+	fmt.Print("        Waktu           Kegiatan\n")
 
 	if time+9 < 10 {
-		fmt.Printf("0%v.00 - 0%v.00 | %v\n", time+8, time+9, A[day].activity[time])
+		fmt.Printf("    0%v.00 - 0%v.00 | %v\n", time+8, time+9, A[day].activity[time])
 	} else if day+9 == 10 {
-		fmt.Printf("0%v.00 - %v.00 | %v\n", time+8, time+9, A[day].activity[time])
+		fmt.Printf("    0%v.00 - %v.00 | %v\n", time+8, time+9, A[day].activity[time])
 	} else {
-		fmt.Printf("%v.00 - %v.00 | %v\n", time+8, time+9, A[day].activity[time])
+		fmt.Printf("    %v.00 - %v.00 | %v\n", time+8, time+9, A[day].activity[time])
 	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
 
 	fmt.Print("\n")
 	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")

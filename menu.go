@@ -188,7 +188,6 @@ func selectTimeActivityMenu(day int) {
 	var activityName string
 	var timeLength int
 
-	peekDailyAgenda(day)
 	fmt.Print("\n")
 	fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
 	printHeader()
@@ -206,6 +205,8 @@ func selectTimeActivityMenu(day int) {
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
+	fmt.Print("|      x. Tampilkan Cuplikan         |\n")
+	fmt.Print("|         Agenda                     |\n")
 	fmt.Print("|      9. Kembali                    |\n")
 	fmt.Print("|      0. Menu Utama                 |\n")
 	fmt.Print("|                                    |\n")
@@ -259,6 +260,10 @@ func selectTimeActivityMenu(day int) {
 	} else if selectedMenu == "i" {
 		fmt.Printf("\x1bc")
 		insertActivity(day, 8, timeLength, activityName)
+	} else if selectedMenu == "x" {
+		fmt.Printf("\x1bc")
+		peekDailyAgenda(day)
+		selectTimeActivityMenu(day)
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		insertActivityMenu()
@@ -325,7 +330,6 @@ func selectTimeMeetingMenu(day int) {
 	var activityName string
 	var timeLength int
 
-	peekDailyAgenda(day)
 	fmt.Print("\n")
 	fmt.Print("*---------- ISI RAPAT BARU ----------*\n")
 	printHeader()
@@ -343,6 +347,8 @@ func selectTimeMeetingMenu(day int) {
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
+	fmt.Print("|      x. Tampilkan Cuplikan         |\n")
+	fmt.Print("|         Agenda                     |\n")
 	fmt.Print("|      9. Kembali                    |\n")
 	fmt.Print("|      0. Menu Utama                 |\n")
 	fmt.Print("|                                    |\n")
@@ -396,6 +402,10 @@ func selectTimeMeetingMenu(day int) {
 	} else if selectedMenu == "i" {
 		fmt.Printf("\x1bc")
 		insertMeeting(day, 8, timeLength, activityName)
+	} else if selectedMenu == "x" {
+		fmt.Printf("\x1bc")
+		peekDailyAgenda(day)
+		selectTimeActivityMenu(day)
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		insertMeetingMenu()
@@ -519,7 +529,6 @@ func deleteActivityMenu() {
 func deleteSelectTimeMenu(day int) {
 	var activityName string
 
-	peekDailyAgenda(day)
 	fmt.Print("\n")
 	fmt.Print("*---------- HAPUS KEGIATAN ----------*\n")
 	printHeader()
@@ -542,6 +551,8 @@ func deleteSelectTimeMenu(day int) {
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
+	fmt.Print("|      x. Tampilkan Cuplikan         |\n")
+	fmt.Print("|         Agenda                     |\n")
 	fmt.Print("|      9. Kembali                    |\n")
 	fmt.Print("|      0. Menu Utama                 |\n")
 	fmt.Print("|                                    |\n")
@@ -600,6 +611,10 @@ func deleteSelectTimeMenu(day int) {
 	} else if selectedMenu == "k" {
 		fmt.Printf("\x1bc")
 		deleteAllActivityByDay(day)
+	} else if selectedMenu == "x" {
+		fmt.Printf("\x1bc")
+		peekDailyAgenda(day)
+		deleteSelectTimeMenu(day)
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		deleteActivityMenu()

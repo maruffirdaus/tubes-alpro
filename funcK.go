@@ -77,6 +77,17 @@ func insertActivity(A *weekAgenda, day, time, timeLength int, activityName strin
 	}
 }
 
+func seqSearch(A weekAgenda, n int, X string, day int) bool {
+
+	var found bool = false
+	var j int = 0
+	for j < n && !found {
+		found = A[day].activity[j] == X
+		j = j + 1
+	}
+	return found
+}
+
 func changeActivity(A *weekAgenda, day, time int) {
 
 }

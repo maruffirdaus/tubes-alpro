@@ -71,9 +71,17 @@ func insertActivity(day, time, timeLength int, activityName string) {
 		fmt.Print("\n")
 		fmt.Print("*------------ PERINGATAN ------------*\n")
 		fmt.Print("                                      \n")
-		fmt.Print("    Kegiatan berhasil diisikan        \n")
-		fmt.Print("    pada agenda dengan waktu yang     \n")
-		fmt.Print("    dipilih.                          \n")
+		fmt.Printf("    Kegiatan %v\n", activityName)
+		fmt.Print("    berhasil diisikan pada agenda     \n")
+		if time+8+timeLength < 10 {
+			fmt.Printf("    dengan waktu 0%v.00 - 0%v.00\n", time+8, time+8+timeLength)
+		} else if time+8+timeLength == 10 {
+			fmt.Printf("    dengan waktu 0%v.00 - %v.00\n", time+8, time+8+timeLength)
+		} else if time+8 < 10 {
+			fmt.Printf("    dengan waktu 0%v.00 - %v.00\n", time+8, time+8+timeLength)
+		} else {
+			fmt.Printf("    dengan waktu %v.00 - %v.00\n", time+8, time+8+timeLength)
+		}
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
 		mainMenu()

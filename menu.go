@@ -405,7 +405,7 @@ func selectTimeMeetingMenu(day int) {
 	} else if selectedMenu == "x" {
 		fmt.Printf("\x1bc")
 		peekDailyAgenda(day)
-		selectTimeActivityMenu(day)
+		selectTimeMeetingMenu(day)
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		insertMeetingMenu()

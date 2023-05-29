@@ -213,7 +213,7 @@ func showTimeAgenda(day, time int) {
 
 	if time+9 < 10 {
 		fmt.Printf("    0%v.00 - 0%v.00 | %v\n", time+8, time+9, A[day].activity[time])
-	} else if day+9 == 10 {
+	} else if time+9 == 10 {
 		fmt.Printf("    0%v.00 - %v.00 | %v\n", time+8, time+9, A[day].activity[time])
 	} else {
 		fmt.Printf("    %v.00 - %v.00 | %v\n", time+8, time+9, A[day].activity[time])

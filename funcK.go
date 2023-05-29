@@ -74,17 +74,17 @@ func insertActivity(day, time, timeLength int, activityName string) {
 		fmt.Printf("    Kegiatan %v\n", activityName)
 		fmt.Print("    berhasil diisikan pada agenda     \n")
 		if time+8+timeLength < 10 {
-			fmt.Printf("    dengan waktu 0%v.00 - 0%v.00\n", time+8, time+8+timeLength)
+			fmt.Printf("    dengan waktu 0%v.00 - 0%v.00.\n", time+8, time+8+timeLength)
 		} else if time+8+timeLength == 10 {
-			fmt.Printf("    dengan waktu 0%v.00 - %v.00\n", time+8, time+8+timeLength)
+			fmt.Printf("    dengan waktu 0%v.00 - %v.00.\n", time+8, time+8+timeLength)
 		} else if time+8 < 10 {
-			fmt.Printf("    dengan waktu 0%v.00 - %v.00\n", time+8, time+8+timeLength)
+			fmt.Printf("    dengan waktu 0%v.00 - %v.00.\n", time+8, time+8+timeLength)
 		} else {
-			fmt.Printf("    dengan waktu %v.00 - %v.00\n", time+8, time+8+timeLength)
+			fmt.Printf("    dengan waktu %v.00 - %v.00.\n", time+8, time+8+timeLength)
 		}
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		mainMenu()
+		selectTimeActivityMenu(day)
 	} else {
 		fmt.Print("\n")
 		fmt.Print("*------------ PERINGATAN ------------*\n")
@@ -113,9 +113,9 @@ func searchActivityName(A weekAgenda, day, i int, activityName string) int {
 	}
 }
 
-func changeActivity(day, time int) {
-	var activityName string
+func changeActivity(day, time int, activityName string) {
 	var A, B weekAgenda
+
 	if selectedManager == 1 {
 		A = firstManagerAgenda
 		B = secondManagerAgenda
@@ -123,30 +123,50 @@ func changeActivity(day, time int) {
 		A = secondManagerAgenda
 		B = firstManagerAgenda
 	}
-	fmt.Scan(&activityName)
-	if A[day].identifier[time] == 0 {
-		A[day].activity[time] = activityName
-	} else {
-		A[day].activity[time] = activityName + " (rapat)"
-		B[day].activity[time] = activityName + " (rapat)"
-	}
-	if selectedManager == 1 {
-		firstManagerAgenda = A
-		secondManagerAgenda = B
-	} else {
-		secondManagerAgenda = A
-		firstManagerAgenda = B
-	}
-	fmt.Print("\n")
-	fmt.Print("*------------ PERINGATAN ------------*\n")
-	fmt.Print("                                      \n")
-	fmt.Print("    Kegiatan berhasil                 \n")
-	fmt.Print("    diubah pada agenda dengan         \n")
-	fmt.Print("    waktu yang dipilih.               \n")
-	fmt.Print("                                      \n")
-	fmt.Print("*------------------------------------*\n")
-	mainMenu()
 
+	if A[day].activity[time] != "" {
+		if A[day].identifier[time] == 0 {
+			A[day].activity[time] = activityName
+		} else {
+			A[day].activity[time] = activityName + " (rapat)"
+			B[day].activity[time] = activityName + " (rapat)"
+		}
+
+		if selectedManager == 1 {
+			firstManagerAgenda = A
+			secondManagerAgenda = B
+		} else {
+			secondManagerAgenda = A
+			firstManagerAgenda = B
+		}
+
+		fmt.Print("\n")
+		fmt.Print("*------------ PERINGATAN ------------*\n")
+		fmt.Print("                                      \n")
+		fmt.Print("    Kegiatan/rapat pada agenda        \n")
+		if time+9 < 10 {
+			fmt.Printf("    dengan waktu 0%v.00 - 0%v.00\n", time+8, time+9)
+		} else if time+9 == 10 {
+			fmt.Printf("    dengan waktu 0%v.00 - %v.00\n", time+8, time+9)
+		} else {
+			fmt.Printf("    dengan waktu %v.00 - %v.00\n", time+8, time+9)
+		}
+		fmt.Printf("    berhasi diubah menjadi %v.\n", activityName)
+		fmt.Print("                                      \n")
+		fmt.Print("*------------------------------------*\n")
+		changeSelectTimeMenu(day)
+	} else {
+		fmt.Print("\n")
+		fmt.Print("*------------ PERINGATAN ------------*\n")
+		fmt.Print("                                      \n")
+		fmt.Print("    Tidak terdapat kegiatan/rapat     \n")
+		fmt.Print("    pada agenda dengan waktu          \n")
+		fmt.Print("    tersebut, silahkan pilih waktu    \n")
+		fmt.Print("    yang lain!                        \n")
+		fmt.Print("                                      \n")
+		fmt.Print("*------------------------------------*\n")
+		changeSelectTimeMenu(day)
+	}
 }
 
 func deleteActivity(day, time int) {
@@ -178,12 +198,18 @@ func deleteActivity(day, time int) {
 	fmt.Print("\n")
 	fmt.Print("*------------ PERINGATAN ------------*\n")
 	fmt.Print("                                      \n")
-	fmt.Print("    Kegiatan/rapat berhasil           \n")
-	fmt.Print("    dihapus pada agenda dengan        \n")
-	fmt.Print("    waktu yang dipilih.               \n")
+	fmt.Print("    Kegiatan/rapat pada agenda        \n")
+	if time+9 < 10 {
+		fmt.Printf("    dengan waktu 0%v.00 - 0%v.00\n", time+8, time+9)
+	} else if time+9 == 10 {
+		fmt.Printf("    dengan waktu 0%v.00 - %v.00\n", time+8, time+9)
+	} else {
+		fmt.Printf("    dengan waktu %v.00 - %v.00\n", time+8, time+9)
+	}
+	fmt.Print("    berhasil dihapus.                 \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	mainMenu()
+	deleteSelectTimeMenu(day)
 }
 
 func deleteActivityByName(day int, activityName string) {
@@ -225,7 +251,7 @@ func deleteActivityByName(day int, activityName string) {
 	fmt.Print("    dihapus.                          \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	mainMenu()
+	deleteSelectTimeMenu(day)
 }
 
 func deleteAllActivity() {
@@ -258,7 +284,7 @@ func deleteAllActivity() {
 	fmt.Print("    dihapus.                          \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	mainMenu()
+	deleteActivityMenu()
 }
 
 func deleteAllActivityByDay(day int) {
@@ -297,7 +323,7 @@ func deleteAllActivityByDay(day int) {
 	fmt.Printf("    %v berhasil dihapus.              \n", dayString(day))
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	mainMenu()
+	deleteSelectTimeMenu(day)
 }
 
 func deleteAllActivityByName(activityName string) {
@@ -340,5 +366,5 @@ func deleteAllActivityByName(activityName string) {
 	fmt.Print("    berhasil dihapus.                 \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	mainMenu()
+	deleteActivityMenu()
 }

@@ -113,7 +113,39 @@ func searchActivityName(A weekAgenda, day, i int, activityName string) int {
 	}
 }
 
-func changeActivity(A *weekAgenda, day, time int) {
+func changeActivity(day, time int) {
+	var activityName string
+	var A, B weekAgenda
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+		B = secondManagerAgenda
+	} else {
+		A = secondManagerAgenda
+		B = firstManagerAgenda
+	}
+	fmt.Scan(&activityName)
+	if A[day].identifier[time] == 0 {
+		A[day].activity[time] = activityName
+	} else {
+		A[day].activity[time] = activityName + " (rapat)"
+		B[day].activity[time] = activityName + " (rapat)"
+	}
+	if selectedManager == 1 {
+		firstManagerAgenda = A
+		secondManagerAgenda = B
+	} else {
+		secondManagerAgenda = A
+		firstManagerAgenda = B
+	}
+	fmt.Print("\n")
+	fmt.Print("*------------ PERINGATAN ------------*\n")
+	fmt.Print("                                      \n")
+	fmt.Print("    Kegiatan berhasil                 \n")
+	fmt.Print("    diubah pada agenda dengan         \n")
+	fmt.Print("    waktu yang dipilih.               \n")
+	fmt.Print("                                      \n")
+	fmt.Print("*------------------------------------*\n")
+	mainMenu()
 
 }
 

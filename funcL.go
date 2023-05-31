@@ -248,3 +248,28 @@ func showTimeAgenda(day, time int) {
 		showTimeAgenda(day, time)
 	}
 }
+
+func optimalDay(day int) {
+	var i, j, idx_min, temp int
+	var A weekAgenda
+	var t weekAgenda
+	i = 1
+	for i <= 8 {
+		if A[day].identifier[i] == 0 {
+			idx_min = i - 1
+			j = i
+			for j < 9 {
+				if A[day].activity[idx_min] == "" {
+					idx_min = j
+				}
+				j = j + 1
+			}
+			t[day].activity[temp] = A[day].activity[idx_min]
+			A[day].activity[idx_min] = A[day].activity[i-1]
+			A[day].activity[i-1] = t[day].activity[temp]
+			i = i + 1
+		}
+	}
+	fmt.Println("agenda sudah optimal")
+	showDailyAgenda(day)
+}

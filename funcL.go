@@ -251,8 +251,22 @@ func showTimeAgenda(day, time int) {
 
 func optimalDay(day int) {
 	var i, j, idx_min, temp int
-	var A weekAgenda
+	var A, B weekAgenda
 	var t weekAgenda
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+		B = secondManagerAgenda
+	} else {
+		A = secondManagerAgenda
+		B = firstManagerAgenda
+	}
+	if selectedManager == 1 {
+		firstManagerAgenda = A
+		secondManagerAgenda = B
+	} else {
+		secondManagerAgenda = A
+		firstManagerAgenda = B
+	}
 	i = 1
 	for i <= 8 {
 		if A[day].identifier[i] == 0 {

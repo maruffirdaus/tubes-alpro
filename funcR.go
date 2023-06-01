@@ -34,7 +34,29 @@ func insertMeeting(day, time, timeLength int, activityName string) {
 		fmt.Print("    lama waktu rapat!                 \n")
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		selectTimeMeetingMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			meetingSelectTimeMenu(day)
+		}
 	} else if checkActivity(A, day, time, timeLength) && checkActivity(B, day, time, timeLength) {
 		for i = time; i < time+timeLength; i++ {
 			A[day].activity[i] = activityName + " (rapat)"
@@ -67,7 +89,29 @@ func insertMeeting(day, time, timeLength int, activityName string) {
 		}
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		selectTimeMeetingMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			meetingSelectTimeMenu(day)
+		}
 	} else {
 		fmt.Print("\n")
 		fmt.Print("*------------ PERINGATAN ------------*\n")
@@ -79,6 +123,28 @@ func insertMeeting(day, time, timeLength int, activityName string) {
 		fmt.Print("    lama waktu rapat!                 \n")
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		selectTimeMeetingMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			meetingSelectTimeMenu(day)
+		}
 	}
 }

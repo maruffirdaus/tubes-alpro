@@ -55,7 +55,29 @@ func insertActivity(day, time, timeLength int, activityName string) {
 		fmt.Print("    lama waktu kegiatan!              \n")
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		selectTimeActivityMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			activitySelectTimeMenu(day)
+		}
 	} else if checkActivity(A, day, time, timeLength) {
 		for i = time; i < time+timeLength; i++ {
 			A[day].activity[i] = activityName
@@ -84,7 +106,29 @@ func insertActivity(day, time, timeLength int, activityName string) {
 		}
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		selectTimeActivityMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			activitySelectTimeMenu(day)
+		}
 	} else {
 		fmt.Print("\n")
 		fmt.Print("*------------ PERINGATAN ------------*\n")
@@ -95,7 +139,29 @@ func insertActivity(day, time, timeLength int, activityName string) {
 		fmt.Print("    lama waktu kegiatan!              \n")
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		selectTimeActivityMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			activitySelectTimeMenu(day)
+		}
 	}
 }
 
@@ -154,7 +220,29 @@ func changeActivity(day, time int, activityName string) {
 		fmt.Printf("    berhasi diubah menjadi %v.\n", activityName)
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		changeSelectTimeMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			changeSelectTimeMenu(day)
+		}
 	} else {
 		fmt.Print("\n")
 		fmt.Print("*------------ PERINGATAN ------------*\n")
@@ -165,7 +253,29 @@ func changeActivity(day, time int, activityName string) {
 		fmt.Print("    yang lain!                        \n")
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")
-		changeSelectTimeMenu(day)
+
+		fmt.Print("\n")
+		fmt.Print("*------------------------------------*\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|            PILIHAN MENU            |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|   Menu Lain:                       |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      9. Kembali                    |\n")
+		fmt.Print("|      0. Menu Utama                 |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("*------------------------------------*\n\n")
+
+		fmt.Print("Pilih nomor menu: ")
+		fmt.Scan(&selectedMenu)
+
+		if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		} else {
+			fmt.Printf("\x1bc")
+			changeSelectTimeMenu(day)
+		}
 	}
 }
 
@@ -209,7 +319,29 @@ func deleteActivity(day, time int) {
 	fmt.Print("    berhasil dihapus.                 \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	deleteSelectTimeMenu(day)
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(day)
+	}
 }
 
 func deleteActivityByName(day int, activityName string) {
@@ -251,7 +383,29 @@ func deleteActivityByName(day int, activityName string) {
 	fmt.Print("    dihapus.                          \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	deleteSelectTimeMenu(day)
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(day)
+	}
 }
 
 func deleteAllActivity() {
@@ -284,7 +438,29 @@ func deleteAllActivity() {
 	fmt.Print("    dihapus.                          \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	deleteActivityMenu()
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		deleteActivityMenu()
+	}
 }
 
 func deleteAllActivityByDay(day int) {
@@ -323,7 +499,29 @@ func deleteAllActivityByDay(day int) {
 	fmt.Printf("    %v berhasil dihapus.              \n", dayString(day))
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	deleteSelectTimeMenu(day)
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		deleteSelectTimeMenu(day)
+	}
 }
 
 func deleteAllActivityByName(activityName string) {
@@ -366,5 +564,27 @@ func deleteAllActivityByName(activityName string) {
 	fmt.Print("    berhasil dihapus.                 \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	deleteActivityMenu()
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		deleteActivityMenu()
+	}
 }

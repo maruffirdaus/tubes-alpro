@@ -36,7 +36,7 @@ func showAllAgenda() {
 	}
 
 	fmt.Print("\n")
-	fmt.Print("*------------------------------------*\n")
+	fmt.Print("*-------------- AGENDA --------------*\n")
 	fmt.Print("\n")
 	if selectedManager == 1 {
 		fmt.Print("         [ MANAJER PERTAMA  ]         \n")
@@ -68,7 +68,7 @@ func showAllAgenda() {
 	fmt.Print("*------------------------------------*\n")
 
 	fmt.Print("\n")
-	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
+	fmt.Print("*------------------------------------*\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|            PILIHAN MENU            |\n")
 	fmt.Print("|                                    |\n")
@@ -106,7 +106,7 @@ func showDailyAgenda(day int) {
 	}
 
 	fmt.Print("\n")
-	fmt.Print("*------------------------------------*\n")
+	fmt.Print("*-------------- AGENDA --------------*\n")
 	fmt.Print("\n")
 	if selectedManager == 1 {
 		fmt.Print("         [ MANAJER PERTAMA  ]         \n")
@@ -132,7 +132,7 @@ func showDailyAgenda(day int) {
 	fmt.Print("*------------------------------------*\n")
 
 	fmt.Print("\n")
-	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
+	fmt.Print("*------------------------------------*\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|            PILIHAN MENU            |\n")
 	fmt.Print("|                                    |\n")
@@ -146,48 +146,10 @@ func showDailyAgenda(day int) {
 	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == "9" {
-		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(day)
-	} else if selectedMenu == "0" {
-		fmt.Printf("\x1bc")
-		mainMenu()
-	} else {
+	if selectedMenu != "9" && selectedMenu != "0" {
 		fmt.Printf("\x1bc")
 		showDailyAgenda(day)
 	}
-}
-
-func peekDailyAgenda(day int) {
-	var A weekAgenda
-	var i int
-	var j int = 8
-
-	if selectedManager == 1 {
-		A = firstManagerAgenda
-	} else {
-		A = secondManagerAgenda
-	}
-
-	fmt.Print("\n")
-	fmt.Print("*------------------------------------*\n")
-	fmt.Print("\n")
-	fmt.Printf("       Agenda pada hari %v:\n\n", dayString(day))
-	fmt.Print("        Waktu           Kegiatan\n")
-
-	for i = 0; i < 9; i++ {
-		if j+1 < 10 {
-			fmt.Printf("    0%v.00 - 0%v.00 | %v\n", j, j+1, A[day].activity[i])
-		} else if j+1 == 10 {
-			fmt.Printf("    0%v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
-		} else {
-			fmt.Printf("    %v.00 - %v.00 | %v\n", j, j+1, A[day].activity[i])
-		}
-		j++
-	}
-
-	fmt.Print("\n")
-	fmt.Print("*------------------------------------*\n")
 }
 
 func showTimeAgenda(day, time int) {
@@ -200,7 +162,7 @@ func showTimeAgenda(day, time int) {
 	}
 
 	fmt.Print("\n")
-	fmt.Print("*------------------------------------*\n")
+	fmt.Print("*-------------- AGENDA --------------*\n")
 	fmt.Print("\n")
 	if selectedManager == 1 {
 		fmt.Print("         [ MANAJER PERTAMA  ]         \n")
@@ -223,7 +185,7 @@ func showTimeAgenda(day, time int) {
 	fmt.Print("*------------------------------------*\n")
 
 	fmt.Print("\n")
-	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
+	fmt.Print("*------------------------------------*\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|            PILIHAN MENU            |\n")
 	fmt.Print("|                                    |\n")
@@ -239,7 +201,7 @@ func showTimeAgenda(day, time int) {
 
 	if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(day)
+		showSelectTimeMenu(day)
 	} else if selectedMenu == "0" {
 		fmt.Printf("\x1bc")
 		mainMenu()

@@ -157,19 +157,19 @@ func insertActivityMenu() {
 
 	if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
-		selectTimeActivityMenu(0)
+		activitySelectTimeMenu(0)
 	} else if selectedMenu == "2" {
 		fmt.Printf("\x1bc")
-		selectTimeActivityMenu(1)
+		activitySelectTimeMenu(1)
 	} else if selectedMenu == "3" {
 		fmt.Printf("\x1bc")
-		selectTimeActivityMenu(2)
+		activitySelectTimeMenu(2)
 	} else if selectedMenu == "4" {
 		fmt.Printf("\x1bc")
-		selectTimeActivityMenu(3)
+		activitySelectTimeMenu(3)
 	} else if selectedMenu == "5" {
 		fmt.Printf("\x1bc")
-		selectTimeActivityMenu(4)
+		activitySelectTimeMenu(4)
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		mainMenu()
@@ -179,7 +179,7 @@ func insertActivityMenu() {
 	}
 }
 
-func selectTimeActivityMenu(day int) {
+func activitySelectTimeMenu(day int) {
 	/*
 		I.S. Terdapat nilai dari hari yang dipilih dan lamanya waktu kegiatan
 		F.S. Menampilkan menu isi kegiatan baru
@@ -262,8 +262,14 @@ func selectTimeActivityMenu(day int) {
 		insertActivity(day, 8, timeLength, activityName)
 	} else if selectedMenu == "x" {
 		fmt.Printf("\x1bc")
-		peekDailyAgenda(day)
-		selectTimeActivityMenu(day)
+		showDailyAgenda(day)
+		if selectedMenu == "9" {
+			fmt.Printf("\x1bc")
+			activitySelectTimeMenu(day)
+		} else if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		}
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		insertActivityMenu()
@@ -272,7 +278,7 @@ func selectTimeActivityMenu(day int) {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		selectTimeActivityMenu(day)
+		activitySelectTimeMenu(day)
 	}
 }
 
@@ -304,19 +310,19 @@ func insertMeetingMenu() {
 
 	if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
-		selectTimeMeetingMenu(0)
+		meetingSelectTimeMenu(0)
 	} else if selectedMenu == "2" {
 		fmt.Printf("\x1bc")
-		selectTimeMeetingMenu(1)
+		meetingSelectTimeMenu(1)
 	} else if selectedMenu == "3" {
 		fmt.Printf("\x1bc")
-		selectTimeMeetingMenu(2)
+		meetingSelectTimeMenu(2)
 	} else if selectedMenu == "4" {
 		fmt.Printf("\x1bc")
-		selectTimeMeetingMenu(3)
+		meetingSelectTimeMenu(3)
 	} else if selectedMenu == "5" {
 		fmt.Printf("\x1bc")
-		selectTimeMeetingMenu(4)
+		meetingSelectTimeMenu(4)
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		mainMenu()
@@ -326,7 +332,7 @@ func insertMeetingMenu() {
 	}
 }
 
-func selectTimeMeetingMenu(day int) {
+func meetingSelectTimeMenu(day int) {
 	var activityName string
 	var timeLength int
 
@@ -404,8 +410,14 @@ func selectTimeMeetingMenu(day int) {
 		insertMeeting(day, 8, timeLength, activityName)
 	} else if selectedMenu == "x" {
 		fmt.Printf("\x1bc")
-		peekDailyAgenda(day)
-		selectTimeMeetingMenu(day)
+		showDailyAgenda(day)
+		if selectedMenu == "9" {
+			fmt.Printf("\x1bc")
+			meetingSelectTimeMenu(day)
+		} else if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		}
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		insertMeetingMenu()
@@ -414,7 +426,7 @@ func selectTimeMeetingMenu(day int) {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		selectTimeMeetingMenu(day)
+		meetingSelectTimeMenu(day)
 	}
 }
 
@@ -488,7 +500,7 @@ func changeSelectTimeMenu(day int) {
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Pilihan Lain:                    |\n")
 	fmt.Print("|                                    |\n")
-	fmt.Print("|      j. Ganti Berdasarkan Nama     |\n")
+	fmt.Print("|      j. Ubah Berdasarkan Nama      |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
@@ -502,7 +514,7 @@ func changeSelectTimeMenu(day int) {
 	fmt.Print("Pilih nomor menu: ")
 	fmt.Scan(&selectedMenu)
 
-	if selectedMenu == "a" || selectedMenu == "b" || selectedMenu == "c" || selectedMenu == "d" || selectedMenu == "e" || selectedMenu == "f" || selectedMenu == "g" || selectedMenu == "h" || selectedMenu == "i" || selectedMenu == "j" {
+	if selectedMenu == "a" || selectedMenu == "b" || selectedMenu == "c" || selectedMenu == "d" || selectedMenu == "e" || selectedMenu == "f" || selectedMenu == "g" || selectedMenu == "h" || selectedMenu == "i" {
 		fmt.Printf("\x1bc")
 		fmt.Print("\n")
 		fmt.Print("*----------- UBAH KEGIATAN ----------*\n")
@@ -551,8 +563,14 @@ func changeSelectTimeMenu(day int) {
 		changeSelectTimeMenu(day)
 	} else if selectedMenu == "x" {
 		fmt.Printf("\x1bc")
-		peekDailyAgenda(day)
-		changeSelectTimeMenu(day)
+		showDailyAgenda(day)
+		if selectedMenu == "9" {
+			fmt.Printf("\x1bc")
+			changeSelectTimeMenu(day)
+		} else if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		}
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		changeActivityMenu()
@@ -565,6 +583,7 @@ func changeSelectTimeMenu(day int) {
 	}
 
 }
+
 func deleteActivityMenu() {
 	/*
 		I.S. -
@@ -749,8 +768,14 @@ func deleteSelectTimeMenu(day int) {
 		deleteAllActivityByDay(day)
 	} else if selectedMenu == "x" {
 		fmt.Printf("\x1bc")
-		peekDailyAgenda(day)
-		deleteSelectTimeMenu(day)
+		showDailyAgenda(day)
+		if selectedMenu == "9" {
+			fmt.Printf("\x1bc")
+			deleteSelectTimeMenu(day)
+		} else if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		}
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		deleteActivityMenu()
@@ -822,19 +847,19 @@ func showAgendaMenu() {
 
 	if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(0)
+		showSelectTimeMenu(0)
 	} else if selectedMenu == "2" {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(1)
+		showSelectTimeMenu(1)
 	} else if selectedMenu == "3" {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(2)
+		showSelectTimeMenu(2)
 	} else if selectedMenu == "4" {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(3)
+		showSelectTimeMenu(3)
 	} else if selectedMenu == "5" {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(4)
+		showSelectTimeMenu(4)
 	} else if selectedMenu == "6" {
 		fmt.Printf("\x1bc")
 		showAllAgenda()
@@ -847,7 +872,7 @@ func showAgendaMenu() {
 	}
 }
 
-func selectTimeAgendaMenu(day int) {
+func showSelectTimeMenu(day int) {
 	/*
 		I.S. Terdapat nilai dari hari yang dipilih
 		F.S. Menampilkan menu tampilkan agenda
@@ -912,6 +937,13 @@ func selectTimeAgendaMenu(day int) {
 	} else if selectedMenu == "j" {
 		fmt.Printf("\x1bc")
 		showDailyAgenda(day)
+		if selectedMenu == "9" {
+			fmt.Printf("\x1bc")
+			showSelectTimeMenu(day)
+		} else if selectedMenu == "0" {
+			fmt.Printf("\x1bc")
+			mainMenu()
+		}
 	} else if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		showAgendaMenu()
@@ -920,6 +952,6 @@ func selectTimeAgendaMenu(day int) {
 		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
-		selectTimeAgendaMenu(day)
+		showSelectTimeMenu(day)
 	}
 }

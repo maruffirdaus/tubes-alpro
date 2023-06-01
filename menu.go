@@ -797,6 +797,14 @@ func optimizeAgendaMenu() {
 	fmt.Print("\n")
 	fmt.Print("*------- OPTIMALISASI AGENDA --------*\n")
 	printHeader()
+	fmt.Print("|   Pilih Hari:                      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      1. Senin                      |\n")
+	fmt.Print("|      2. Selasa                     |\n")
+	fmt.Print("|      3. Rabu                       |\n")
+	fmt.Print("|      4. Kamis                      |\n")
+	fmt.Print("|      5. Jumat                      |\n")
+	fmt.Print("|                                    |\n")
 	fmt.Print("|   Menu Lain:                       |\n")
 	fmt.Print("|                                    |\n")
 	fmt.Print("|      9. Kembali                    |\n")
@@ -809,6 +817,21 @@ func optimizeAgendaMenu() {
 	if selectedMenu == "9" {
 		fmt.Printf("\x1bc")
 		mainMenu()
+	} else if selectedMenu == "1" {
+		fmt.Printf("\x1bc")
+		optimalDay(0)
+	} else if selectedMenu == "2" {
+		fmt.Printf("\x1bc")
+		optimalDay(1)
+	} else if selectedMenu == "3" {
+		fmt.Printf("\x1bc")
+		optimalDay(2)
+	} else if selectedMenu == "4" {
+		fmt.Printf("\x1bc")
+		optimalDay(3)
+	} else if selectedMenu == "5" {
+		fmt.Printf("\x1bc")
+		optimalDay(4)
 	} else {
 		fmt.Printf("\x1bc")
 		optimizeAgendaMenu()

@@ -481,7 +481,7 @@ func changeActivityMenu() {
 }
 
 func changeSelectTimeMenu(day int) {
-	var activityName string
+	var activityName, newActivityName string
 
 	fmt.Print("\n")
 	fmt.Print("*----------- UBAH KEGIATAN ----------*\n")
@@ -560,7 +560,35 @@ func changeSelectTimeMenu(day int) {
 		changeActivity(day, 8, activityName)
 	} else if selectedMenu == "j" {
 		fmt.Printf("\x1bc")
-		changeSelectTimeMenu(day)
+		fmt.Print("\n")
+		fmt.Print("*----------- UBAH KEGIATAN ----------*\n")
+		fmt.Print("                                      \n")
+		fmt.Print("    Isikan detail kegiatan/rapat      \n")
+		fmt.Print("    yang akan diubah!                 \n")
+		fmt.Print("                                      \n")
+		fmt.Print("    Catatan: tidak dapat menerima     \n")
+		fmt.Print("    input ( ) spasi, gunakan (_)      \n")
+		fmt.Print("    underscore sebagai pengganti.     \n")
+		fmt.Print("                                      \n")
+		fmt.Print("*------------------------------------*\n\n")
+		fmt.Print("Nama kegiatan/rapat: ")
+		fmt.Scan(&activityName)
+		fmt.Printf("\x1bc")
+		fmt.Print("\n")
+		fmt.Print("*----------- UBAH KEGIATAN ----------*\n")
+		fmt.Print("                                      \n")
+		fmt.Print("    Isikan detail kegiatan/rapat      \n")
+		fmt.Print("    baru!                             \n")
+		fmt.Print("                                      \n")
+		fmt.Print("    Catatan: tidak dapat menerima     \n")
+		fmt.Print("    input ( ) spasi, gunakan (_)      \n")
+		fmt.Print("    underscore sebagai pengganti.     \n")
+		fmt.Print("                                      \n")
+		fmt.Print("*------------------------------------*\n\n")
+		fmt.Print("Nama kegiatan/rapat baru: ")
+		fmt.Scan(&newActivityName)
+		fmt.Printf("\x1bc")
+		changeActivityByName(day, activityName, newActivityName)
 	} else if selectedMenu == "x" {
 		fmt.Printf("\x1bc")
 		showDailyAgenda(day)
@@ -581,7 +609,6 @@ func changeSelectTimeMenu(day int) {
 		fmt.Printf("\x1bc")
 		changeSelectTimeMenu(day)
 	}
-
 }
 
 func deleteActivityMenu() {
@@ -819,19 +846,22 @@ func optimizeAgendaMenu() {
 		mainMenu()
 	} else if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
-		optimalDay(0)
+		optimizeAgenda(0)
 	} else if selectedMenu == "2" {
 		fmt.Printf("\x1bc")
-		optimalDay(1)
+		optimizeAgenda(1)
 	} else if selectedMenu == "3" {
 		fmt.Printf("\x1bc")
-		optimalDay(2)
+		optimizeAgenda(2)
 	} else if selectedMenu == "4" {
 		fmt.Printf("\x1bc")
-		optimalDay(3)
+		optimizeAgenda(3)
 	} else if selectedMenu == "5" {
 		fmt.Printf("\x1bc")
-		optimalDay(4)
+		optimizeAgenda(4)
+	} else if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
+		mainMenu()
 	} else {
 		fmt.Printf("\x1bc")
 		optimizeAgendaMenu()

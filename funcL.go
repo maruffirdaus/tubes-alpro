@@ -211,41 +211,89 @@ func showTimeAgenda(day, time int) {
 	}
 }
 
-func optimalDay(day int) {
-	var i, j, idx_min, temp int
-	var A, B weekAgenda
-	var t weekAgenda
+func searchActivityLength(A weekAgenda, day, i int) int {
+	var status bool
+	var tempName string
+	var j int
+	tempName = A[day].activity[i]
+	for i < 9 && !status {
+		i++
+		if i < 9 {
+			status = tempName != A[day].activity[i]
+		} else {
+			status = true
+		}
+		j++
+	}
+	return j
+}
+
+func optimizeAgenda(day int) {
+	var i, j, k, tempA, tempB int
+	var A weekAgenda
+	var status bool
+
 	if selectedManager == 1 {
 		A = firstManagerAgenda
-		B = secondManagerAgenda
 	} else {
 		A = secondManagerAgenda
-		B = firstManagerAgenda
 	}
+
+	for i < 9 {
+		if i < 8 {
+			if A[day].activity[i] == "" {
+				if A[day].identifier[i+1] == 0 && A[day].activity[i+1] != "" {
+					A[day].activity[i] = A[day].activity[i+1]
+					A[day].activity[i+1] = ""
+				}
+			}
+		}
+		i++
+	}
+
+	i = 0
+
+	for i < 9 {
+		if A[day].activity[i] == "" {
+			tempA = searchActivityLength(A, day, i)
+			j = i + tempA
+			status = false
+			for j < 9 && !status {
+				tempB = searchActivityLength(A, day, j)
+				if tempB <= tempA && A[day].activity[j] != "" && A[day].identifier[j] == 0 {
+					for k = i; k < i+tempB; k++ {
+						A[day].activity[k] = A[day].activity[j]
+					}
+					for k = j; k < j+tempB; k++ {
+						A[day].activity[k] = ""
+					}
+					status = true
+				}
+				j = j + tempB
+			}
+		}
+		i++
+	}
+
 	if selectedManager == 1 {
 		firstManagerAgenda = A
-		secondManagerAgenda = B
 	} else {
 		secondManagerAgenda = A
-		firstManagerAgenda = B
 	}
-	i = 1
-	for i <= 8 {
-		if A[day].identifier[i] == 0 {
-			idx_min = i - 1
-			j = i
-			for j < 9 {
-				if A[day].activity[idx_min] == "" {
-					idx_min = j
-				}
-				j = j + 1
-			}
-			t[day].activity[temp] = A[day].activity[idx_min]
-			A[day].activity[idx_min] = A[day].activity[i-1]
-			A[day].activity[i-1] = t[day].activity[temp]
-			i = i + 1
-		}
-	}
-	fmt.Println("agenda sudah optimal")
+
+	fmt.Print("\n")
+	fmt.Print("*------------ PERINGATAN ------------*\n")
+	fmt.Print("                                      \n")
+	fmt.Printf("    Agenda pada hari %v telah\n", dayString(day))
+	fmt.Print("    dioptimalkan.                     \n")
+	fmt.Print("                                      \n")
+	fmt.Print("*------------------------------------*\n")
 	showDailyAgenda(day)
+	if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
+		optimizeAgendaMenu()
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	}
 }

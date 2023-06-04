@@ -78,14 +78,15 @@ func insertMeeting(day, time, timeLength int, activityName string) {
 		fmt.Print("                                      \n")
 		fmt.Printf("    Rapat %v\n", activityName)
 		fmt.Print("    berhasil diisikan pada agenda     \n")
+		fmt.Printf("    hari %v dengan waktu\n", dayString(day))
 		if time+8+timeLength < 10 {
-			fmt.Printf("    dengan waktu 0%v.00 - 0%v.00.\n", time+8, time+8+timeLength)
+			fmt.Printf("    0%v.00 - 0%v.00.\n", time+8, time+8+timeLength)
 		} else if time+8+timeLength == 10 {
-			fmt.Printf("    dengan waktu 0%v.00 - %v.00.\n", time+8, time+8+timeLength)
+			fmt.Printf("    0%v.00 - %v.00.\n", time+8, time+8+timeLength)
 		} else if time+8 < 10 {
-			fmt.Printf("    dengan waktu 0%v.00 - %v.00.\n", time+8, time+8+timeLength)
+			fmt.Printf("    0%v.00 - %v.00.\n", time+8, time+8+timeLength)
 		} else {
-			fmt.Printf("    dengan waktu %v.00 - %v.00.\n", time+8, time+8+timeLength)
+			fmt.Printf("    %v.00 - %v.00.\n", time+8, time+8+timeLength)
 		}
 		fmt.Print("                                      \n")
 		fmt.Print("*------------------------------------*\n")

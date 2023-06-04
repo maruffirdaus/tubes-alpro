@@ -240,11 +240,13 @@ func optimizeAgenda(day int) {
 	}
 
 	for i < 9 {
-		if i < 8 {
-			if A[day].activity[i] == "" {
-				if A[day].identifier[i+1] == 0 && A[day].activity[i+1] != "" {
-					A[day].activity[i] = A[day].activity[i+1]
-					A[day].activity[i+1] = ""
+		if A[day].activity[i] == "" {
+			tempA = searchActivityLength(A, day, i)
+			if i+tempA < 9 {
+				j = i + tempA
+				if A[day].identifier[j] == 0 && A[day].activity[j] != "" {
+					A[day].activity[i] = A[day].activity[j]
+					A[day].activity[j] = ""
 				}
 			}
 		}

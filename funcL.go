@@ -414,7 +414,7 @@ func optimizeAllAgenda() {
 	fmt.Print("\n")
 	fmt.Print("*------------ PERINGATAN ------------*\n")
 	fmt.Print("                                      \n")
-	fmt.Print("    Seluruh agenda telah              \n")
+	fmt.Print("    Semua agenda telah                \n")
 	fmt.Print("    dioptimalkan.                     \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")

@@ -1,12 +1,3 @@
-// Rapat bersama
-// identifier 0 = kegiatan pribadi
-// identifier 1 = rapat bersama
-// day 0,1,2,3,4 = hari senin, selasa, rabu, kamis, jumat
-// time 0 = 08.00-09.00
-// time 1 = 09.00-10.00
-// time 2 = 10.00-11.00
-// dst.
-
 package main
 
 import "fmt"
@@ -14,7 +5,6 @@ import "fmt"
 func insertMeeting(day, time, timeLength int, activityName string) {
 	/* IS terdefinis hari, waktu, durasi, & nama rapat
 	FS durasi, & nama rapat masuk ke dalam agenda hari dan waktu yang dipilih */
-	// Mengisi rapat ke dalam agenda pada hari dan waktu yang dipilih
 
 	var A, B weekAgenda
 	var i int

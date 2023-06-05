@@ -1,24 +1,9 @@
-// Lain
-// identifier 0 = kegiatan pribadi
-// identifier 1 = rapat bersama
-// day 0,1,2,3,4 = hari senin, selasa, rabu, kamis, jumat
-// time 0 = 08.00-09.00
-// time 1 = 09.00-10.00
-// time 2 = 10.00-11.00
-// dst.
-
 package main
 
 import "fmt"
 
 func dayString(day int) string {
-	//mengmbalikan indeks dari tiap hari
-	// Mengubah indeks array menjadi string hari
-	// 0 = Senin
-	// 1 = Selasa
-	// 2 = Rabu
-	// 3 = Kamis
-	// 4 = Jumat
+	//mengembalikan string hari dari indeks
 
 	if day == 0 {
 		return "Senin"
@@ -36,7 +21,6 @@ func dayString(day int) string {
 func showAllAgenda() {
 	/* IS -
 	FS menampilkan seluruh agenda */
-	// Menampilkan seluruh agenda
 
 	var A weekAgenda
 	var i, j, k int
@@ -110,8 +94,6 @@ func showDailyAgenda(day int) {
 	/* IS terpilih hari yang ditentukan
 	FS menampilkan data agenda pada hari yang dipilih */
 
-	// Menampilkan agenda pada hari yang dipilih
-
 	var A weekAgenda
 	var i int
 	var j int = 8
@@ -172,7 +154,6 @@ func showDailyAgenda(day int) {
 func showTimeAgenda(day, time int) {
 	/* IS terpilih hari dan waktu yang ditentukan
 	FS menampilkan data agenda pada hari dan waktu yang dipilih */
-	// Menampilkan agenda pada hari dan waktu yang dipilih
 
 	var A weekAgenda
 
@@ -234,7 +215,6 @@ func showTimeAgenda(day, time int) {
 
 func searchActivityLength(A weekAgenda, day, i int) int {
 	//mengembalikan durasi kegiatan dari agenda pada hari yang ditentukan
-	// Mencari lama waktu suatu kegiatan/rapat atau slot kosong pada agenda
 
 	var status bool
 	var tempName string
@@ -255,7 +235,6 @@ func searchActivityLength(A weekAgenda, day, i int) int {
 func optimizeAgenda(day int) {
 	/* IS terpilih hari yang ditentukan
 	FS mengoptimalkan data agenda pada hari yang dipilih */
-	// Mengoptimalkan agenda pada hari yang dipilih
 
 	var i, j, k, tempA, tempB int
 	var A weekAgenda
@@ -291,15 +270,7 @@ func optimizeAgenda(day int) {
 			for j < 9 && !status {
 				tempB = searchActivityLength(A, day, j)
 				if A[day].activity[j] != "" && A[day].identifier[j] == 0 {
-					if tempB == tempA {
-						for k = i; k < i+tempB; k++ {
-							A[day].activity[k] = A[day].activity[j]
-						}
-						for k = j; k < j+tempB; k++ {
-							A[day].activity[k] = ""
-						}
-						status = true
-					} else if tempB <= tempA {
+					if tempB <= tempA {
 						for k = i; k < i+tempB; k++ {
 							A[day].activity[k] = A[day].activity[j]
 						}
@@ -341,7 +312,6 @@ func optimizeAgenda(day int) {
 func optimizeAllAgenda() {
 	/* IS -
 	FS mengoptimalkan seluruh data agenda */
-	// Mengoptimalkan seluruh agenda
 
 	var A weekAgenda
 	var i, j, k, l, m, tempA, tempB int
@@ -390,15 +360,7 @@ func optimizeAllAgenda() {
 					for l < 9 {
 						tempB = searchActivityLength(A, k, l)
 						if A[k].activity[l] != "" && A[k].identifier[l] == 0 {
-							if tempB == tempA {
-								for m = j; m < j+tempB; m++ {
-									A[i].activity[m] = A[k].activity[l]
-								}
-								for m = l; m < l+tempB; m++ {
-									A[k].activity[m] = ""
-								}
-								status = true
-							} else if tempB <= tempA {
+							if tempB <= tempA {
 								for m = j; m < j+tempB; m++ {
 									A[i].activity[m] = A[k].activity[l]
 								}

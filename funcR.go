@@ -12,6 +12,8 @@ package main
 import "fmt"
 
 func insertMeeting(day, time, timeLength int, activityName string) {
+	// Mengisi rapat ke dalam agenda pada hari dan waktu yang dipilih
+
 	var A, B weekAgenda
 	var i int
 

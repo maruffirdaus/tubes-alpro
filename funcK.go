@@ -30,10 +30,7 @@ func checkActivity(A weekAgenda, day, time, timeLength int) bool {
 }
 
 func insertActivity(day, time, timeLength int, activityName string) {
-	/*
-		I.S. Terdapat nilai dari hari dan waktu yang dipilih, lamanya waktu, dan nama kegiatan pribadi
-		F.S. Mengisi kegiatan pribadi ke dalam array
-	*/
+	// Mengisi kegiatan ke dalam agenda pada hari dan waktu yang dipilih
 
 	var A weekAgenda
 	var i int
@@ -167,6 +164,8 @@ func insertActivity(day, time, timeLength int, activityName string) {
 }
 
 func searchActivityName(A weekAgenda, day, i int, activityName string) int {
+	// Mencari indeks array dari suatu kegiatan/rapat
+	// Apabila tidak ditemukan = -1
 
 	var found bool = false
 	for i < 9 && !found {
@@ -181,6 +180,8 @@ func searchActivityName(A weekAgenda, day, i int, activityName string) int {
 }
 
 func changeActivity(day, time int, activityName string) {
+	// Mengubah kegiatan/rapat pada hari dan waktu yang dipilih
+
 	var A, B weekAgenda
 
 	if selectedManager == 1 {
@@ -288,6 +289,9 @@ func changeActivity(day, time int, activityName string) {
 }
 
 func changeActivityByName(day int, activityName, newActivityName string) {
+	// Mengubah kegiatan/rapat pada hari yang dipilih berdasarkan nama
+	// Nama kegiatan/rapat yang sebelumnya telah diisikan diubah menjadi nama baru
+
 	var A, B weekAgenda
 	var i, j int
 	var status bool
@@ -372,6 +376,8 @@ func changeActivityByName(day int, activityName, newActivityName string) {
 }
 
 func deleteActivity(day, time int) {
+	// Menghapus kegiatan/rapat pada hari dan waktu yang dipilih
+
 	var A, B weekAgenda
 
 	if selectedManager == 1 {
@@ -438,6 +444,8 @@ func deleteActivity(day, time int) {
 }
 
 func deleteActivityByName(day int, activityName string) {
+	// Menghapus kegiatan/rapat pada hari yang dipilih berdasarkan nama
+
 	var A, B weekAgenda
 	var i, j int
 
@@ -502,6 +510,8 @@ func deleteActivityByName(day int, activityName string) {
 }
 
 func deleteAllActivity() {
+	// Menghapus semua kegiatan/rapat
+
 	var A, B weekAgenda
 	var i, j int
 
@@ -568,6 +578,8 @@ func deleteAllActivity() {
 }
 
 func deleteAllActivityByDay(day int) {
+	// Menghapus semua kegiatan/rapat pada hari yang dipilih
+
 	var A, B weekAgenda
 	var i int
 
@@ -629,6 +641,8 @@ func deleteAllActivityByDay(day int) {
 }
 
 func deleteAllActivityByName(activityName string) {
+	// Menghapus semua kegiatan/rapat berdasarkan nama
+
 	var A, B weekAgenda
 	var i, j, k int
 

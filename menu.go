@@ -8,10 +8,7 @@ var selectedMenu string
 var selectedManager int
 
 func selectManager() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu untuk memilih manajer pertama atau kedua yang akan membuat agenda
-	*/
+	// Menampilkan menu untuk memilih manajer
 
 	fmt.Printf("\x1bc")
 	fmt.Print("\n")
@@ -50,10 +47,7 @@ func selectManager() {
 }
 
 func printHeader() {
-	/*
-		I.S. -
-		F.S. Menampilkan header
-	*/
+	// Mencetak header
 
 	fmt.Print("|                                    |\n")
 	if selectedManager == 1 {
@@ -67,10 +61,7 @@ func printHeader() {
 }
 
 func mainMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu utama pencatat agenda kegiatan
-	*/
+	// Menampilkan menu utama
 
 	fmt.Print("\n")
 	fmt.Print("*----- PENCATAT AGENDA KEGIATAN -----*\n")
@@ -130,10 +121,7 @@ func mainMenu() {
 }
 
 func insertActivityMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu isi kegiatan baru
-	*/
+	// Menampilkan menu isi kegiatan baru
 
 	fmt.Print("\n")
 	fmt.Print("*-------- ISI KEGIATAN BARU ---------*\n")
@@ -180,10 +168,7 @@ func insertActivityMenu() {
 }
 
 func activitySelectTimeMenu(day int) {
-	/*
-		I.S. Terdapat nilai dari hari yang dipilih dan lamanya waktu kegiatan
-		F.S. Menampilkan menu isi kegiatan baru
-	*/
+	// Menampilkan menu untuk memilih waktu saat akan mengisi kegiatan baru
 
 	var activityName string
 	var timeLength int
@@ -283,10 +268,7 @@ func activitySelectTimeMenu(day int) {
 }
 
 func insertMeetingMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu isi rapat baru
-	*/
+	// Menampilkan menu isi rapat baru
 
 	fmt.Print("\n")
 	fmt.Print("*---------- ISI RAPAT BARU ----------*\n")
@@ -333,6 +315,8 @@ func insertMeetingMenu() {
 }
 
 func meetingSelectTimeMenu(day int) {
+	// Menampilkan menu untuk memilih waktu saat akan mengisi rapat baru
+
 	var activityName string
 	var timeLength int
 
@@ -431,10 +415,7 @@ func meetingSelectTimeMenu(day int) {
 }
 
 func changeActivityMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu ubah kegiatan
-	*/
+	// Menampilkan menu ubah kegiatan/rapat
 
 	fmt.Print("\n")
 	fmt.Print("*---------- UBAH KEGIATAN -----------*\n")
@@ -481,6 +462,8 @@ func changeActivityMenu() {
 }
 
 func changeSelectTimeMenu(day int) {
+	// Menampilkan menu untuk memilih waktu saat akan mengubah kegiatan/rapat
+
 	var activityName, newActivityName string
 
 	fmt.Print("\n")
@@ -612,10 +595,7 @@ func changeSelectTimeMenu(day int) {
 }
 
 func deleteActivityMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu hapus kegiatan
-	*/
+	// Menampilkan menu hapus kegiatan/rapat
 
 	var activityName string
 
@@ -709,6 +689,8 @@ func deleteActivityMenu() {
 }
 
 func deleteSelectTimeMenu(day int) {
+	// Menampilkan menu untuk memilih waktu saat akan menghapus kegiatan/rapat
+
 	var activityName string
 
 	fmt.Print("\n")
@@ -816,10 +798,7 @@ func deleteSelectTimeMenu(day int) {
 }
 
 func optimizeAgendaMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu optimalisasi agenda
-	*/
+	// Menampilkan menu optimalisasi agenda
 
 	fmt.Print("\n")
 	fmt.Print("*------- OPTIMALISASI AGENDA --------*\n")
@@ -869,10 +848,7 @@ func optimizeAgendaMenu() {
 }
 
 func showAgendaMenu() {
-	/*
-		I.S. -
-		F.S. Menampilkan menu tampilkan agenda
-	*/
+	// Menampilkan menu tampilkan agenda
 
 	fmt.Print("\n")
 	fmt.Print("*--------- TAMPILKAN AGENDA ---------*\n")
@@ -926,10 +902,7 @@ func showAgendaMenu() {
 }
 
 func showSelectTimeMenu(day int) {
-	/*
-		I.S. Terdapat nilai dari hari yang dipilih
-		F.S. Menampilkan menu tampilkan agenda
-	*/
+	// Menampilkan menu untuk memilih waktu saat akan menampilkan agenda
 
 	fmt.Print("\n")
 	fmt.Print("*--------- TAMPILKAN AGENDA ---------*\n")

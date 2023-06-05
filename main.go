@@ -1,5 +1,3 @@
-// Program utama
-
 package main
 
 type agenda struct {

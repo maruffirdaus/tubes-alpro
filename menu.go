@@ -1,5 +1,3 @@
-// Menu
-
 package main
 
 import "fmt"

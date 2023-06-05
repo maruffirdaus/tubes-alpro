@@ -299,13 +299,35 @@ func optimizeAgenda(day int) {
 	fmt.Print("    dioptimalkan.                     \n")
 	fmt.Print("                                      \n")
 	fmt.Print("*------------------------------------*\n")
-	showDailyAgenda(day)
-	if selectedMenu == "9" {
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Pilih Aksi:                      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      1. Tampilkan Agenda           |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
-		optimizeAgendaMenu()
+		showAgendaMenu()
 	} else if selectedMenu == "0" {
 		fmt.Printf("\x1bc")
 		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		optimizeAgendaMenu()
 	}
 }
 
@@ -416,9 +438,6 @@ func optimizeAllAgenda() {
 	if selectedMenu == "1" {
 		fmt.Printf("\x1bc")
 		showAgendaMenu()
-	} else if selectedMenu == "9" {
-		fmt.Printf("\x1bc")
-		optimizeAgendaMenu()
 	} else if selectedMenu == "0" {
 		fmt.Printf("\x1bc")
 		mainMenu()

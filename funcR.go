@@ -90,6 +90,10 @@ func insertMeeting(day, time, timeLength int, activityName string) {
 		fmt.Print("|                                    |\n")
 		fmt.Print("|            PILIHAN MENU            |\n")
 		fmt.Print("|                                    |\n")
+		fmt.Print("|   Pilih Aksi:                      |\n")
+		fmt.Print("|                                    |\n")
+		fmt.Print("|      1. Tampilkan Agenda           |\n")
+		fmt.Print("|                                    |\n")
 		fmt.Print("|   Menu Lain:                       |\n")
 		fmt.Print("|                                    |\n")
 		fmt.Print("|      9. Kembali                    |\n")
@@ -100,7 +104,10 @@ func insertMeeting(day, time, timeLength int, activityName string) {
 		fmt.Print("Pilih nomor menu: ")
 		fmt.Scan(&selectedMenu)
 
-		if selectedMenu == "0" {
+		if selectedMenu == "1" {
+			fmt.Printf("\x1bc")
+			showAgendaMenu()
+		} else if selectedMenu == "0" {
 			fmt.Printf("\x1bc")
 			mainMenu()
 		} else {

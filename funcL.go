@@ -261,7 +261,7 @@ func optimizeAgenda(day int) {
 			tempA = searchActivityLength(A, day, i)
 			if i+tempA < 9 {
 				j = i + tempA
-				if A[day].identifier[j] == 0 && A[day].activity[j] != "" {
+				if A[day].activity[j] != "" && A[day].identifier[j] == 0 {
 					A[day].activity[i] = A[day].activity[j]
 					A[day].activity[j] = ""
 				}
@@ -279,14 +279,24 @@ func optimizeAgenda(day int) {
 			status = false
 			for j < 9 && !status {
 				tempB = searchActivityLength(A, day, j)
-				if tempB <= tempA && A[day].activity[j] != "" && A[day].identifier[j] == 0 {
-					for k = i; k < i+tempB; k++ {
-						A[day].activity[k] = A[day].activity[j]
+				if A[day].activity[j] != "" && A[day].identifier[j] == 0 {
+					if tempB == tempA {
+						for k = i; k < i+tempB; k++ {
+							A[day].activity[k] = A[day].activity[j]
+						}
+						for k = j; k < j+tempB; k++ {
+							A[day].activity[k] = ""
+						}
+						status = true
+					} else if tempB <= tempA {
+						for k = i; k < i+tempB; k++ {
+							A[day].activity[k] = A[day].activity[j]
+						}
+						for k = j; k < j+tempB; k++ {
+							A[day].activity[k] = ""
+						}
+						status = true
 					}
-					for k = j; k < j+tempB; k++ {
-						A[day].activity[k] = ""
-					}
-					status = true
 				}
 				j = j + tempB
 			}
@@ -314,5 +324,131 @@ func optimizeAgenda(day int) {
 	} else if selectedMenu == "0" {
 		fmt.Printf("\x1bc")
 		mainMenu()
+	}
+}
+
+func optimizeAllAgenda() {
+	// Mengoptimalkan seluruh agenda
+
+	var A weekAgenda
+	var i, j, k, l, m, tempA, tempB int
+	var status bool
+
+	if selectedManager == 1 {
+		A = firstManagerAgenda
+	} else {
+		A = secondManagerAgenda
+	}
+
+	for i < 5 {
+		j = 0
+		for j < 9 {
+			if A[i].activity[j] == "" {
+				tempA = searchActivityLength(A, i, j)
+				if j+tempA < 9 {
+					k = j + tempA
+					if A[i].activity[k] != "" && A[i].identifier[k] == 0 {
+						A[i].activity[j] = A[i].activity[k]
+						A[i].activity[k] = ""
+					}
+				}
+			}
+			j++
+		}
+		i++
+	}
+
+	i = 0
+	j = 0
+	k = 0
+
+	for i < 5 {
+		j = 0
+		for j < 9 {
+			if A[i].activity[j] == "" {
+				tempA = searchActivityLength(A, i, j)
+				k = i
+				l = j + tempA
+				status = false
+				for k < 5 && !status {
+					if i < k {
+						l = 0
+					}
+					for l < 9 {
+						tempB = searchActivityLength(A, k, l)
+						if A[k].activity[l] != "" && A[k].identifier[l] == 0 {
+							if tempB == tempA {
+								for m = j; m < j+tempB; m++ {
+									A[i].activity[m] = A[k].activity[l]
+								}
+								for m = l; m < l+tempB; m++ {
+									A[k].activity[m] = ""
+								}
+								status = true
+							} else if tempB <= tempA {
+								for m = j; m < j+tempB; m++ {
+									A[i].activity[m] = A[k].activity[l]
+								}
+								for m = l; m < l+tempB; m++ {
+									A[k].activity[m] = ""
+								}
+								status = true
+							}
+						}
+						l = l + tempB
+					}
+					k++
+				}
+			}
+			j++
+		}
+		i++
+	}
+
+	if selectedManager == 1 {
+		firstManagerAgenda = A
+	} else {
+		secondManagerAgenda = A
+	}
+
+	fmt.Print("\n")
+	fmt.Print("*------------ PERINGATAN ------------*\n")
+	fmt.Print("                                      \n")
+	fmt.Print("    Seluruh agenda telah              \n")
+	fmt.Print("    dioptimalkan.                     \n")
+	fmt.Print("                                      \n")
+	fmt.Print("*------------------------------------*\n")
+
+	fmt.Print("\n")
+	fmt.Print("*------------------------------------*\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|            PILIHAN MENU            |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Pilih Aksi:                      |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      1. Tampilkan Agenda           |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|   Menu Lain:                       |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("|      9. Kembali                    |\n")
+	fmt.Print("|      0. Menu Utama                 |\n")
+	fmt.Print("|                                    |\n")
+	fmt.Print("*------------------------------------*\n\n")
+
+	fmt.Print("Pilih nomor menu: ")
+	fmt.Scan(&selectedMenu)
+
+	if selectedMenu == "1" {
+		fmt.Printf("\x1bc")
+		showAgendaMenu()
+	} else if selectedMenu == "9" {
+		fmt.Printf("\x1bc")
+		optimizeAgendaMenu()
+	} else if selectedMenu == "0" {
+		fmt.Printf("\x1bc")
+		mainMenu()
+	} else {
+		fmt.Printf("\x1bc")
+		optimizeAgendaMenu()
 	}
 }

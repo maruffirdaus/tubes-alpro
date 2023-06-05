@@ -12,6 +12,7 @@ package main
 import "fmt"
 
 func dayString(day int) string {
+	//mengmbalikan indeks dari tiap hari
 	// Mengubah indeks array menjadi string hari
 	// 0 = Senin
 	// 1 = Selasa
@@ -33,6 +34,8 @@ func dayString(day int) string {
 }
 
 func showAllAgenda() {
+	/* IS -
+	FS menampilkan seluruh agenda */
 	// Menampilkan seluruh agenda
 
 	var A weekAgenda
@@ -104,6 +107,9 @@ func showAllAgenda() {
 }
 
 func showDailyAgenda(day int) {
+	/* IS terpilih hari yang ditentukan
+	FS menampilkan data agenda pada hari yang dipilih */
+
 	// Menampilkan agenda pada hari yang dipilih
 
 	var A weekAgenda
@@ -164,6 +170,8 @@ func showDailyAgenda(day int) {
 }
 
 func showTimeAgenda(day, time int) {
+	/* IS terpilih hari dan waktu yang ditentukan
+	FS menampilkan data agenda pada hari dan waktu yang dipilih */
 	// Menampilkan agenda pada hari dan waktu yang dipilih
 
 	var A weekAgenda
@@ -225,6 +233,7 @@ func showTimeAgenda(day, time int) {
 }
 
 func searchActivityLength(A weekAgenda, day, i int) int {
+	//mengembalikan durasi kegiatan dari agenda pada hari yang ditentukan
 	// Mencari lama waktu suatu kegiatan/rapat atau slot kosong pada agenda
 
 	var status bool
@@ -244,6 +253,8 @@ func searchActivityLength(A weekAgenda, day, i int) int {
 }
 
 func optimizeAgenda(day int) {
+	/* IS terpilih hari yang ditentukan
+	FS mengoptimalkan data agenda pada hari yang dipilih */
 	// Mengoptimalkan agenda pada hari yang dipilih
 
 	var i, j, k, tempA, tempB int
@@ -328,6 +339,8 @@ func optimizeAgenda(day int) {
 }
 
 func optimizeAllAgenda() {
+	/* IS -
+	FS mengoptimalkan seluruh data agenda */
 	// Mengoptimalkan seluruh agenda
 
 	var A weekAgenda

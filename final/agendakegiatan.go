@@ -1178,7 +1178,7 @@ func checkActivity(A weekAgenda, day, time, timeLength int) bool {
 }
 
 func searchActivityName(A weekAgenda, day, i int, activityName string) int {
-	// mengembalikan indeks dari suatu kegiatan/rapat pada hari yang dipilih jika ditemukan dan -1 jika tidak ditemukan
+	// mengembalikan indeks dari suatu kegiatan/rapat pada nama yang dipilih jika ditemukan dan -1 jika tidak ditemukan
 
 	var found bool = false
 	for i < 9 && !found {

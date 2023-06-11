@@ -48,9 +48,9 @@ func initialization() {
 	secondManagerAgenda[0].identifier[7] = 1
 
 	// Agenda manajer pertama pada hari Selasa
-	firstManagerAgenda[1].activity[1] = "Servis_mobil"
+	firstManagerAgenda[1].activity[1] = "servis_mobil"
 	firstManagerAgenda[1].identifier[1] = 0
-	firstManagerAgenda[1].activity[2] = "Servis_mobil"
+	firstManagerAgenda[1].activity[2] = "servis_mobil"
 	firstManagerAgenda[1].identifier[2] = 0
 	firstManagerAgenda[1].activity[3] = "beli_kue"
 	firstManagerAgenda[1].identifier[3] = 0
@@ -84,10 +84,10 @@ func initialization() {
 	firstManagerAgenda[2].identifier[2] = 0
 	firstManagerAgenda[2].activity[3] = "berkuda"
 	firstManagerAgenda[2].identifier[3] = 0
-	firstManagerAgenda[2].activity[5] = "pembahasan_proposal (rapat)"
+	firstManagerAgenda[2].activity[5] = "menyelam"
 	firstManagerAgenda[2].identifier[5] = 0
-	firstManagerAgenda[2].activity[7] = "presentasi (rapat)"
-	firstManagerAgenda[2].identifier[7] = 0
+	firstManagerAgenda[2].activity[6] = "menyelam"
+	firstManagerAgenda[2].identifier[6] = 0
 	firstManagerAgenda[2].activity[8] = "mancing_bersama"
 	firstManagerAgenda[2].identifier[8] = 0
 
@@ -2281,7 +2281,7 @@ func optimizeAllAgenda() {
 					if i < k {
 						l = 0
 					}
-					for l < 9 {
+					for l < 9 && !status {
 						tempB = searchActivityLength(A, k, l)
 						if A[k].activity[l] != "" && A[k].identifier[l] == 0 {
 							if tempB <= tempA {

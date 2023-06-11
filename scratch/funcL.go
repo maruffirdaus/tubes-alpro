@@ -379,7 +379,7 @@ func optimizeAllAgenda() {
 					if i < k {
 						l = 0
 					}
-					for l < 9 {
+					for l < 9 && !status {
 						tempB = searchActivityLength(A, k, l)
 						if A[k].activity[l] != "" && A[k].identifier[l] == 0 {
 							if tempB <= tempA {

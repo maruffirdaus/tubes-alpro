@@ -3,11 +3,11 @@ package main
 import "fmt"
 
 type agenda struct {
-	activity   [9]string
-	identifier [9]int
+	activity   [9]string // [0] = 08:00, [1] = 09:00, [2] = 10:00, dst.
+	identifier [9]int    //0 untuk kegiatan pribadi, 1 untuk kegiatan rapat
 }
 
-type weekAgenda [5]agenda
+type weekAgenda [5]agenda // [0] = senin, [1] = selasa, [2] = rabu, [3] = kamis, [4] = jumat
 
 var firstManagerAgenda weekAgenda  // Menyimpan data agenda manajer pertama
 var secondManagerAgenda weekAgenda // Menyimpan data agenda manajer kedua
@@ -1162,7 +1162,7 @@ func showSelectTimeMenu(day int) {
 // Search Function
 
 func checkActivity(A weekAgenda, day, time, timeLength int) bool {
-	// mengembalikan true jika slot kosong dan false jika sudah terisi
+	// mengembalikan true jika slot di agenda kosong dan false jika sudah terisi
 
 	var status bool = true
 	var i int = time
@@ -1178,7 +1178,7 @@ func checkActivity(A weekAgenda, day, time, timeLength int) bool {
 }
 
 func searchActivityName(A weekAgenda, day, i int, activityName string) int {
-	// mengembalikan indeks dari suatu kegiatan/rapat jika ditemukan dan -1 jika tidak ditemukan
+	// mengembalikan indeks dari suatu kegiatan/rapat pada hari yang dipilih jika ditemukan dan -1 jika tidak ditemukan
 
 	var found bool = false
 	for i < 9 && !found {
@@ -1193,7 +1193,7 @@ func searchActivityName(A weekAgenda, day, i int, activityName string) int {
 }
 
 func searchActivityLength(A weekAgenda, day, i int) int {
-	//mengembalikan durasi kegiatan dari agenda pada hari yang ditentukan
+	//mengembalikan durasi kegiatan dari agenda pada hari dan waktu(indeks) yang dipilih
 
 	var status bool
 	var tempName string
@@ -2135,7 +2135,7 @@ func deleteAllActivityByName(activityName string) {
 // Sorting Function
 
 func optimizeAgenda(day int) {
-	/* IS terpilih hari yang ditentukan
+	/* IS terpilih hari yang akan dioptimalisasi agendanya
 	FS mengoptimalkan data agenda pada hari yang dipilih */
 
 	var i, j, k, tempA, tempB int
@@ -2352,7 +2352,7 @@ func optimizeAllAgenda() {
 // Print Function
 
 func showTimeAgenda(day, time int) {
-	/* IS terpilih hari dan waktu yang ditentukan
+	/* IS terpilih hari dan waktu yang akan ditampilkan
 	FS menampilkan data agenda pada hari dan waktu yang dipilih */
 
 	var A weekAgenda
@@ -2414,7 +2414,7 @@ func showTimeAgenda(day, time int) {
 }
 
 func showDailyAgenda(day int) {
-	/* IS terpilih hari yang ditentukan
+	/* IS terpilih hari yang akan ditampilkan
 	FS menampilkan data agenda pada hari yang dipilih */
 
 	var A weekAgenda

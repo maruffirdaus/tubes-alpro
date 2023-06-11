@@ -7,7 +7,7 @@ var selectedManager int
 
 func selectManager() {
 	/* IS -
-	FS menampilkan menu memilih manajer */
+	FS menampilkan menu memilih manajer dan menyimpan nilai manajer terpilih, 1 untuk manajer pertama dan 2 untuk manajer kedua*/
 
 	fmt.Printf("\x1bc")
 	fmt.Print("\n")

@@ -17,8 +17,7 @@ func main() {
 
 func initialization() {
 	/* IS -
-	   FS terinisiasi setiap jadwal */
-	// Inisialisasi data untuk keperluan demo program
+	   FS terinisiasi data kegiatan setiap manajer pada agenda */
 
 	// Agenda manajer pertama pada hari Senin
 	firstManagerAgenda[0].activity[2] = "bermain_golf"
@@ -44,12 +43,12 @@ func initialization() {
 	secondManagerAgenda[0].activity[7] = "presentasi (rapat)"
 	secondManagerAgenda[0].identifier[7] = 1
 
-	// Agenda manajer pertama pada hari selasa
+	// Agenda manajer pertama pada hari Selasa
 	firstManagerAgenda[1].activity[1] = "Servis_mobil"
 	firstManagerAgenda[1].identifier[1] = 0
 	firstManagerAgenda[1].activity[2] = "Servis_mobil"
 	firstManagerAgenda[1].identifier[2] = 0
-	firstManagerAgenda[1].activity[3] = "Beli_Kue"
+	firstManagerAgenda[1].activity[3] = "beli_kue"
 	firstManagerAgenda[1].identifier[3] = 0
 	firstManagerAgenda[1].activity[5] = "pembahasan_finansial (rapat)"
 	firstManagerAgenda[1].identifier[5] = 1
@@ -57,7 +56,7 @@ func initialization() {
 	firstManagerAgenda[1].identifier[6] = 1
 	firstManagerAgenda[1].activity[7] = "presentasi (rapat)"
 	firstManagerAgenda[1].identifier[7] = 1
-	firstManagerAgenda[1].activity[8] = "Ke_Balai_Kota"
+	firstManagerAgenda[1].activity[8] = "ke_balai_kota"
 	firstManagerAgenda[1].identifier[8] = 0
 
 	// Agenda manajer kedua pada hari Selasa
@@ -73,10 +72,10 @@ func initialization() {
 	secondManagerAgenda[1].identifier[6] = 1
 	secondManagerAgenda[1].activity[7] = "presentasi (rapat)"
 	secondManagerAgenda[1].identifier[7] = 1
-	secondManagerAgenda[1].activity[8] = "Makan_bersama_keluarga"
+	secondManagerAgenda[1].activity[8] = "makan_bersama_keluarga"
 	secondManagerAgenda[1].identifier[8] = 0
 
-	// Agenda manajer pertama pada hari rabu
+	// Agenda manajer pertama pada hari Rabu
 	firstManagerAgenda[2].activity[2] = "berkuda"
 	firstManagerAgenda[2].identifier[2] = 0
 	firstManagerAgenda[2].activity[3] = "berkuda"
@@ -88,7 +87,7 @@ func initialization() {
 	firstManagerAgenda[2].activity[8] = "mancing_bersama"
 	firstManagerAgenda[2].identifier[8] = 0
 
-	// Agenda manajer kedua pada hari rabu
+	// Agenda manajer kedua pada hari Rabu
 	secondManagerAgenda[2].activity[0] = "berselancar"
 	secondManagerAgenda[2].identifier[0] = 0
 	secondManagerAgenda[2].activity[2] = "les_piano"
@@ -153,5 +152,4 @@ func initialization() {
 	secondManagerAgenda[4].identifier[6] = 0
 	secondManagerAgenda[4].activity[7] = "presentasi (rapat)"
 	secondManagerAgenda[4].identifier[7] = 1
-
 }
